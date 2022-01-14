@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+helmChartInflationGenerator:
+  - chartName: argo-cd
+    chartRepoUrl: https://argoproj.github.io/argo-helm
+    chartVersion: 3.24.0
+    values: argo-cd-values.yaml
+    releaseName: argo-cd
+
+resources:
+  - backend-config.yaml
+
+patchesStrategicMerge:
+  - argo-server-deployment.patch.yaml
+  - argo-server-service.patch.yaml

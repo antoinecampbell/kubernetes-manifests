@@ -1,0 +1,9 @@
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: test-cert
+spec:
+  domains:
+    - test.antoine-campbell.com
+    - argocd.antoine-campbell.com
