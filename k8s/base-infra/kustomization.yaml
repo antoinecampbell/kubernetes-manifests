@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - ./argo-cd
   - ./ingress-nginx
+  - ./sealed-secrets
