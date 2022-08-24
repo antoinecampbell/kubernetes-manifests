@@ -1,0 +1,9 @@
+controller:
+  watchIngressWithoutClass: true
+  ingressClassResource:
+    default: true
+  service:
+    external:
+      enabled: false
+  hostPort:
+    enabled: true

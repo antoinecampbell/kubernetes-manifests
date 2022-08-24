@@ -1,0 +1,18 @@
+configs:
+  secret:
+    argocdServerAdminPassword: "$2a$10$fHShpyOkQGZQNTtmzu7Gl.3jSSnWOVIRT1.UHcXsBag8.25cfGG7q"
+
+server:
+  staticAssets:
+    enabled: true
+  ingress:
+    enabled: true
+    paths:
+      - /argocd/(.*)
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+      nginx.ingress.kubernetes.io/use-regex: true
+  extraArgs:
+    - --insecure
+    - --basehref
+    - /argocd

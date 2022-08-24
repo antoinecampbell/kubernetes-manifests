@@ -1,8 +1,0 @@
-configs:
-  secret:
-    argocdServerAdminPassword: "$2a$10$fHShpyOkQGZQNTtmzu7Gl.3jSSnWOVIRT1.UHcXsBag8.25cfGG7q"
-
-server:
-  certificate:
-    additionalHosts:
-      - argocd.antoine-campbell.com
