@@ -5,6 +5,8 @@ configs:
 server:
   staticAssets:
     enabled: true
+  config:
+    kustomize.buildOptions: --enable-helm
   ingress:
     enabled: true
     paths:
