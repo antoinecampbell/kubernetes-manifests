@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: argo-cd
+namespace: argocd
 
 resources:
   - namespace.yaml
@@ -12,5 +12,5 @@ helmCharts:
     version: 4.10.9
     valuesFile: values.yaml
     releaseName: argo-cd
-    namespace: argo-cd
+    namespace: argocd
     includeCRDs: true
