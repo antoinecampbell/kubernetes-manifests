@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: ingress-nginx
 spec:
-  project: cluster-tools
+  project: default
   source:
     repoURL: https://gitlab.com/antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
