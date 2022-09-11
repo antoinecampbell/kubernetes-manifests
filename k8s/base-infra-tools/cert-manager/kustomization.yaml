@@ -3,6 +3,10 @@ kind: Kustomization
 
 namespace: cert-manager
 
+resources:
+  - issuer-staging.yaml
+  - issuer-prod.yaml
+
 helmCharts:
   - name: cert-manager
     repo:  https://charts.bitnami.com/bitnami
