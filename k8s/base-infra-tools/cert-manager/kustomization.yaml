@@ -5,8 +5,8 @@ namespace: cert-manager
 
 helmCharts:
   - name: cert-manager
-    repo:  https://bitnami-labs.github.io/cert-manager
-    version: 2.6.0
+    repo:  https://charts.bitnami.com/bitnami
+    version: 0.8.2
     valuesFile: values.yaml
     releaseName: cert-manager
     namespace: cert-manager
