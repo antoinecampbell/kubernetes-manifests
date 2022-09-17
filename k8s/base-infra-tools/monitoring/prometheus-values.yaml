@@ -1,4 +1,0 @@
-#server:
-#  prefixURL: /prometheus
-#alertmanager:
-#  prefixURL: /alertmanager

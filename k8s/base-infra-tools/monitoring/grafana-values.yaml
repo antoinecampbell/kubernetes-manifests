@@ -1,4 +1,0 @@
-server:
-grafana.ini:
-    server:
-      root_url: /grafana
