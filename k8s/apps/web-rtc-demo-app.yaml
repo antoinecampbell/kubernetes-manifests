@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-rtc-demo
+  labels:
+    app: web-rtc-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-rtc-demo
+  template:
+    metadata:
+      labels:
+        app: web-rtc-demo
+    spec:
+      containers:
+        - name: web
+          image: ghcr.io/antoinecampbell/webrtc:latest
+          ports:
+            - containerPort: 3000
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-rtc-demo
+  labels:
+    app: web-rtc-demo
+spec:
+  selector:
+    app: web-rtc-demo
+  ports:
+    - port: 80
+      targetPort: http
+      name: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-rtc-demo
+  labels:
+    app: web-rtc-demo
+spec:
+  rules:
+    - host: web-rtc-demo.home.antoine-campbell.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: web-rtc-demo
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+  tls:
+    - secretName: web-rtc-demo-cert

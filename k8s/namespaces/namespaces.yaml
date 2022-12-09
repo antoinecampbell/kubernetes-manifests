@@ -22,3 +22,23 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: cert-manager
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: postgres
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: retool
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: directus
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: camunda-platform
