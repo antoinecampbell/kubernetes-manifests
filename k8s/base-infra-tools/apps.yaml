@@ -50,7 +50,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: web-rtc-demo
-  namespace: default
+  namespace: argocd
   labels:
     name: web-rtc-demo
 spec:
