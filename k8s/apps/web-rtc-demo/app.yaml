@@ -20,6 +20,9 @@ spec:
           ports:
             - containerPort: 3000
               name: http
+          env:
+            - name: NODE_ENV
+              value: production
 ---
 apiVersion: v1
 kind: Service
