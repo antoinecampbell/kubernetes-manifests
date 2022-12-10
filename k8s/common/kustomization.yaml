@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: default
 
 resources:
-  - tls-certificate.yaml
+  - tls-certificates.yaml
