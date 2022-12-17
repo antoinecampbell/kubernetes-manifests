@@ -7,6 +7,8 @@ ingress:
   path: /camunda-platform
 identity:
   enabled: false
+zeebe-gateway:
+  replicas: 1
 zeebe:
   persistenceType: local
   clusterSize: 1
