@@ -9,11 +9,25 @@ identity:
   enabled: false
 zeebe-gateway:
   replicas: 1
+  resources:
+    requests:
+      cpu: 250m
 zeebe:
+  resources:
+    requests:
+      cpu: 250m
   persistenceType: local
   clusterSize: 1
   partitionCount: 1
   replicationFactor: 1
+operate:
+  resources:
+    requests:
+      cpu: 250m
+tasklist:
+  resources:
+    requests:
+      cpu: 250m
 elasticsearch:
   replicas: 1
   persistence:
