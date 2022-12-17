@@ -46,6 +46,4 @@ elasticsearch:
     resources:
       requests:
         storage: 8Gi
-  antiAffinity: null
-  antiAffinityTopologyKey: null
-
+  antiAffinity: soft
