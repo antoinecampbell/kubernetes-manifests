@@ -2,10 +2,6 @@ global:
   identity:
     auth:
       enabled: false
-ingress:
-  enabled: true
-  host: home-server
-  path: /camunda-platform
 identity:
   enabled: false
 zeebe-gateway:
