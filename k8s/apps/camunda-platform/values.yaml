@@ -4,6 +4,7 @@ global:
       enabled: false
 ingress:
   enabled: true
+  host: home-server
   path: /camunda-platform
 identity:
   enabled: false
