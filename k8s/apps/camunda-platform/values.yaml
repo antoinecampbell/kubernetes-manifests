@@ -42,9 +42,5 @@ elasticsearch:
       cpu: 500m
   persistence:
     enabled: false
-  volumeClaimTemplate:
-    resources:
-      requests:
-        storage: 8Gi
   antiAffinity: soft
   nodeAffinity: {}
