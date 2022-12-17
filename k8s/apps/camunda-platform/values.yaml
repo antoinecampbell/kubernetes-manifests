@@ -9,3 +9,8 @@ identity:
   enabled: false
 zeebe:
   persistenceType: local
+  clusterSize: 1
+  partitionCount: 1
+  replicationFactor: 1
+elasticsearch:
+  replicas: 1
