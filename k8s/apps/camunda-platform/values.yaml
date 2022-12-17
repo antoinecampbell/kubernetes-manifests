@@ -46,4 +46,5 @@ elasticsearch:
     resources:
       requests:
         storage: 8Gi
+  antiAffinity: null
 
