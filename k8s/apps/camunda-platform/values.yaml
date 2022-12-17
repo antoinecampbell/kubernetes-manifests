@@ -16,3 +16,5 @@ zeebe:
   replicationFactor: 1
 elasticsearch:
   replicas: 1
+  persistence:
+    enabled: false
