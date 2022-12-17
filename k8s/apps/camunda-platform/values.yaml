@@ -12,6 +12,7 @@ zeebe-gateway:
   resources:
     requests:
       cpu: 250m
+  affinity: {}
 zeebe:
   resources:
     requests:
@@ -20,14 +21,17 @@ zeebe:
   clusterSize: 1
   partitionCount: 1
   replicationFactor: 1
+  affinity: {}
 operate:
   resources:
     requests:
       cpu: 250m
+  affinity: {}
 tasklist:
   resources:
     requests:
       cpu: 250m
+  affinity: {}
 elasticsearch:
   replicas: 1
   persistence:
