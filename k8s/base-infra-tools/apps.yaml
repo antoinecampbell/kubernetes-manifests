@@ -117,3 +117,28 @@ spec:
     syncOptions:
       - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
       - PruneLast=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: camunda-platform
+  namespace: argocd
+  labels:
+    name: camunda-platform
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    targetRevision: HEAD
+    path: k8s/apps/camunda-platform
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PruneLast=true

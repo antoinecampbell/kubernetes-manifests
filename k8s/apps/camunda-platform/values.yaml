@@ -1,0 +1,11 @@
+global:
+  identity:
+    auth:
+      enabled: false
+ingress:
+  enabled: true
+  path: /camunda-platform
+identity:
+  enabled: false
+zeebe:
+  persistenceType: local
