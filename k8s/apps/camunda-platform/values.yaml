@@ -41,9 +41,10 @@ elasticsearch:
     limits:
       cpu: 500m
   persistence:
-    enabled: true
+    enabled: false
   volumeClaimTemplate:
     resources:
       requests:
         storage: 8Gi
-  antiAffinity: null
+  antiAffinity: soft
+  nodeAffinity: {}
