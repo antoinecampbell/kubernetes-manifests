@@ -8,8 +8,6 @@ resources:
 persistence:
   enabled: false
 antiAffinity: soft
-secret:
-  enabled: false
 ingress:
   enabled: true
   className: "nginx"
