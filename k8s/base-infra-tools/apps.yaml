@@ -142,3 +142,27 @@ spec:
     syncOptions:
       - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
       - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: elasticsearch
+  namespace: argocd
+  labels:
+    name: elasticsearch
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    targetRevision: HEAD
+    path: k8s/base-infra-tools/elasticsearch
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: elastic
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PruneLast=true
