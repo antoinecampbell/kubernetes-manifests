@@ -6,6 +6,9 @@ global:
 identity:
   enabled: false
 
+optimize:
+  enabled: false
+
 zeebe-gateway:
   replicas: 1
   resources:
