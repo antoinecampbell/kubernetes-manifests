@@ -2,14 +2,17 @@ global:
   identity:
     auth:
       enabled: false
+
 identity:
   enabled: false
+
 zeebe-gateway:
   replicas: 1
   resources:
     requests:
       cpu: 250m
   affinity: {}
+
 zeebe:
   resources:
     requests:
@@ -19,16 +22,33 @@ zeebe:
   partitionCount: 1
   replicationFactor: 1
   affinity: {}
+
 operate:
+  env:
+    - name: SERVER_SERVLET_CONTEXT_PATH
+      value: /operate
+  ingress:
+    enabled: true
+    className: public
+    path: /operate
   resources:
     requests:
       cpu: 250m
   affinity: {}
+
 tasklist:
+  env:
+    - name: SERVER_SERVLET_CONTEXT_PATH
+      value: /tasklist
+  ingress:
+    enabled: true
+    className: public
+    path: /tasklist
   resources:
     requests:
       cpu: 250m
   affinity: {}
+
 elasticsearch:
   replicas: 1
   resources:
