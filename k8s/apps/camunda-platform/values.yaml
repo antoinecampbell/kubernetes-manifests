@@ -31,7 +31,7 @@ operate:
     - name: SERVER_SERVLET_CONTEXT_PATH
       value: /operate
   ingress:
-    enabled: true
+    enabled: false
     className: public
     path: /operate
   resources:
@@ -44,7 +44,7 @@ tasklist:
     - name: SERVER_SERVLET_CONTEXT_PATH
       value: /tasklist
   ingress:
-    enabled: true
+    enabled: false
     className: public
     path: /tasklist
   resources:
