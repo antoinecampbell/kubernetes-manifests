@@ -10,7 +10,5 @@ persistence:
 antiAffinity: soft
 createCert: false
 extraEnvs:
-  - name: discovery.type
-    value: single-node
   - name: xpack.security.enabled
-    value: false
+    value: "false"
