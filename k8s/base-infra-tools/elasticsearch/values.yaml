@@ -8,11 +8,3 @@ resources:
 persistence:
   enabled: false
 antiAffinity: soft
-ingress:
-  enabled: true
-  className: "nginx"
-  pathType: ImplementationSpecific
-  hosts:
-    - host: home-server
-      paths:
-        - path: /elasticsearch
