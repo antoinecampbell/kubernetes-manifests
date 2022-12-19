@@ -9,6 +9,3 @@ persistence:
   enabled: false
 antiAffinity: soft
 createCert: false
-extraEnvs:
-  - name: xpack.security.enabled
-    value: "false"
