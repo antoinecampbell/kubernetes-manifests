@@ -7,7 +7,13 @@ identity:
   enabled: false
 
 optimize:
-  replicas: 1
+  env:
+    - name: CONTAINER_CONTEXT_PATH
+      value: /optimize
+  ingress:
+    enabled: true
+    host: home-server
+    path: /optimize
   resources:
     requests:
       cpu: 250m
