@@ -14,8 +14,6 @@ optimize:
   env:
     - name: CAMUNDA_OPTIMIZE_ENTERPRISE
       value: "false"
-    - name: ZEEBE_ENABLED
-      value: "true"
   affinity: {}
 
 zeebe-gateway:
