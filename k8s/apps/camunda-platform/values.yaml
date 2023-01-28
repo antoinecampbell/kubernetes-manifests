@@ -8,7 +8,7 @@ identity:
 
 optimize:
   env:
-    - name: CONTAINER_CONTEXT_PATH
+    - name: CONTAINER_CONTEXTPATH
       value: /optimize
   ingress:
     enabled: true
