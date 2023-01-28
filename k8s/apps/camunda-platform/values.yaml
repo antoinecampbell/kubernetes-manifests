@@ -11,6 +11,9 @@ optimize:
   resources:
     requests:
       cpu: 250m
+  env:
+    - name: CAMUNDA_OPTIMIZE_ENTERPRISE
+      value: false
   affinity: {}
 
 zeebe-gateway:
