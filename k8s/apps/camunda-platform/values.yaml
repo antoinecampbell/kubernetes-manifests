@@ -7,9 +7,7 @@ identity:
   enabled: false
 
 optimize:
-  env:
-    - name: CONTAINER_CONTEXTPATH
-      value: /optimize
+  contextPath: /optimize
   ingress:
     enabled: true
     host: home-server
@@ -37,9 +35,7 @@ zeebe:
   affinity: {}
 
 operate:
-  env:
-    - name: SERVER_SERVLET_CONTEXT_PATH
-      value: /operate
+  contextPath: /operate
   ingress:
     enabled: true
     host: home-server
@@ -50,9 +46,7 @@ operate:
   affinity: {}
 
 tasklist:
-  env:
-    - name: SERVER_SERVLET_CONTEXT_PATH
-      value: /tasklist
+  contextPath: /tasklist
   ingress:
     enabled: true
     host: home-server
