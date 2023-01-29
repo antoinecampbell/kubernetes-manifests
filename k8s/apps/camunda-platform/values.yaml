@@ -7,15 +7,7 @@ identity:
   enabled: false
 
 optimize:
-  contextPath: /optimize
-  ingress:
-    enabled: true
-    host: home-server
-    path: /optimize
-  resources:
-    requests:
-      cpu: 250m
-  affinity: {}
+  enabled: false
 
 zeebe-gateway:
   replicas: 1
