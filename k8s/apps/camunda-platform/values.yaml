@@ -11,6 +11,10 @@ optimize:
 
 zeebe-gateway:
   replicas: 1
+  ingress:
+    enabled: true
+    host: home-server
+    path: /operate
   resources:
     requests:
       cpu: 250m
