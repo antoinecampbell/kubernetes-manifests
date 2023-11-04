@@ -22,6 +22,10 @@ zeebe:
   resources:
     requests:
       cpu: 250m
+      memory: 400Mi
+    limits:
+      cpu: 250m
+      memory: 512Mi
   persistenceType: local
   clusterSize: 1
   partitionCount: 1
@@ -37,6 +41,10 @@ operate:
   resources:
     requests:
       cpu: 250m
+      memory: 400Mi
+    limits:
+      cpu: 250m
+      memory: 512Mi
   affinity: {}
 
 tasklist:
@@ -48,17 +56,25 @@ tasklist:
   resources:
     requests:
       cpu: 250m
+      memory: 400Mi
+    limits:
+      cpu: 250m
+      memory: 512Mi
   affinity: {}
 
 elasticsearch:
   replicas: 1
-  resources:
-    requests:
-      cpu: 250m
-      memory: 1Gi
-    limits:
-      cpu: 500m
+  master:
+    resources:
+      requests:
+        cpu: 250m
+        memory: 1Gi
+      limits:
+        cpu: 500m
   persistence:
     enabled: false
   antiAffinity: soft
   nodeAffinity: {}
+
+connectors:
+  enabled: false
