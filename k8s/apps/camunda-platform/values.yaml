@@ -72,6 +72,12 @@ elasticsearch:
         memory: 1Gi
       limits:
         cpu: 500m
+  data:
+    replicaCount: 0
+  coordinating:
+    replicaCount: 0
+  ingest:
+    enabled: false
   persistence:
     enabled: false
   antiAffinity: soft
