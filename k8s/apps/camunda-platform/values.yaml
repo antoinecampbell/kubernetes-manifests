@@ -64,8 +64,8 @@ tasklist:
   affinity: {}
 
 elasticsearch:
-  replicas: 1
   master:
+    replicaCount: 1
     resources:
       requests:
         cpu: 250m
