@@ -64,6 +64,9 @@ tasklist:
   affinity: {}
 
 elasticsearch:
+  config:
+    discovery:
+      type: single-node
   master:
     replicaCount: 1
     resources:
