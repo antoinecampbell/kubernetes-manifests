@@ -65,6 +65,7 @@ tasklist:
 
 elasticsearch:
   master:
+    materOnly: true
     replicaCount: 1
     resources:
       requests:
@@ -72,13 +73,14 @@ elasticsearch:
         memory: 1Gi
       limits:
         cpu: 500m
+    persistence:
+      enabled: false
+      size: 4Gi
   data:
     replicaCount: 0
   coordinating:
     replicaCount: 0
   ingest:
-    enabled: false
-  persistence:
     enabled: false
   antiAffinity: soft
   nodeAffinity: {}
