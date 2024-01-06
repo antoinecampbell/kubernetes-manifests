@@ -31,16 +31,6 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: retool
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: directus
----
-apiVersion: v1
-kind: Namespace
-metadata:
   name: camunda-platform
 ---
 apiVersion: v1
