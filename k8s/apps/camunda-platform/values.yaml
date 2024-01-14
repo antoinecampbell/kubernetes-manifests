@@ -11,6 +11,9 @@ optimize:
 
 zeebe-gateway:
   replicas: 1
+  ingress:
+    enabled: true
+    host: home-server
   service:
     type: NodePort
   resources:
