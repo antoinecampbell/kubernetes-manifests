@@ -14,7 +14,7 @@ zeebe-gateway:
   ingress:
     enabled: true
     host: home-server
-    path: /operate
+    path: /zeebe-gateway
   service:
     type: NodePort
   resources:
