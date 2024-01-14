@@ -84,7 +84,7 @@ elasticsearch:
         memory: 256mi
       limits:
         cpu: 500m
-        memory: 1Gi
+        memory: 1500Mi
     persistence:
       enabled: false
       size: 4Gi
