@@ -16,6 +16,10 @@ zeebe-gateway:
   resources:
     requests:
       cpu: 250m
+      memory: 256i
+    limits:
+      cpu: 250m
+      memory: 450Mi
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution: []
@@ -24,7 +28,7 @@ zeebe:
   resources:
     requests:
       cpu: 250m
-      memory: 400Mi
+      memory: 256Mi
     limits:
       cpu: 250m
       memory: 512Mi
@@ -45,7 +49,7 @@ operate:
   resources:
     requests:
       cpu: 250m
-      memory: 400Mi
+      memory: 256Mi
     limits:
       cpu: 250m
       memory: 512Mi
@@ -62,7 +66,7 @@ tasklist:
   resources:
     requests:
       cpu: 250m
-      memory: 400Mi
+      memory: 256Mi
     limits:
       cpu: 250m
       memory: 512Mi
@@ -95,4 +99,7 @@ elasticsearch:
       requiredDuringSchedulingIgnoredDuringExecution: []
 
 connectors:
+  enabled: false
+
+webModeler:
   enabled: false
