@@ -5,7 +5,7 @@ namespace: camunda-platform
 
 helmCharts:
   - name: camunda-platform
-    repo:  https://helm.camunda.io
+    repo: https://helm.camunda.io
     version: 9.0.2
     valuesFile: values.yaml
     releaseName: camunda-platform
