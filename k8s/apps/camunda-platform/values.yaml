@@ -16,7 +16,9 @@ zeebe-gateway:
   resources:
     requests:
       cpu: 250m
-  affinity: {}
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution: []
 
 zeebe:
   resources:
@@ -30,7 +32,9 @@ zeebe:
   clusterSize: 1
   partitionCount: 1
   replicationFactor: 1
-  affinity: {}
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution: []
 
 operate:
   contextPath: /operate
@@ -45,7 +49,8 @@ operate:
     limits:
       cpu: 250m
       memory: 512Mi
-  affinity: {}
+  affinity:
+    podAntiAffinity: {}
 
 tasklist:
   enabled: false
@@ -61,7 +66,9 @@ tasklist:
     limits:
       cpu: 250m
       memory: 512Mi
-  affinity: {}
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution: []
 
 elasticsearch:
   master:
@@ -83,7 +90,9 @@ elasticsearch:
   ingest:
     enabled: false
   antiAffinity: soft
-  nodeAffinity: {}
+  nodeAffinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution: []
 
 connectors:
   enabled: false
