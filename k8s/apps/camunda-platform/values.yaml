@@ -81,9 +81,10 @@ elasticsearch:
     resources:
       requests:
         cpu: 250m
-        memory: 1Gi
+        memory: 256mi
       limits:
         cpu: 500m
+        memory: 1Gi
     persistence:
       enabled: false
       size: 4Gi
