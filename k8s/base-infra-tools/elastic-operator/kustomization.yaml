@@ -4,10 +4,10 @@ kind: Kustomization
 namespace: elastic
 
 helmCharts:
-  - name: elasticsearch
+  - name: eck-operator
     repo:  https://helm.elastic.co
-    version: 8.5.1
+    version: 2.11.0
     valuesFile: values.yaml
-    releaseName: elastic
+    releaseName: elastic-operator
     namespace: elastic
     includeCRDs: true
