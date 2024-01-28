@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: cert-manager
 
 resources:
+  - issuer-self-signed.yaml
   - issuer-staging.yaml
   - issuer-prod.yaml
 
