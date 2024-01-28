@@ -1,6 +1,6 @@
 configs:
   secret:
-    argocdServerAdminPassword: "$2a$10$fHShpyOkQGZQNTtmzu7Gl.3jSSnWOVIRT1.UHcXsBag8.25cfGG7q"
+    argocdServerAdminPassword: "$2a$10$3oZjPu9AFz33sKQ3LsQ9UuquA6RttoURjs6CXRCFazevdydHaa0ba"
 
 server:
   staticAssets:
@@ -8,6 +8,8 @@ server:
   config:
     kustomize.buildOptions: --enable-helm
   ingress:
+    hosts:
+    - home-server
     enabled: true
     paths:
       - /argocd(/|$)(.*)
