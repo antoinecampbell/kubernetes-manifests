@@ -1,0 +1,19 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: elasticsearch-main
+spec:
+  rules:
+    - host: home-server
+      http:
+        paths:
+          - backend:
+              service:
+                name: main-es-default
+                port:
+                  name: http
+            path: /elasticsearch
+            pathType: Prefix

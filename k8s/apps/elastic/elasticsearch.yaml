@@ -1,0 +1,43 @@
+---
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: main
+  namespace: elastic
+spec:
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
+  nodeSets:
+    - config:
+        node.store.allow_mmap: false
+        xpack.security.authc:
+          anonymous:
+            authz_exception: false
+            roles: superuser
+            username: anonymous
+      count: 1
+      name: default
+      podTemplate:
+        spec:
+          containers:
+            - name: elasticsearch
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 1Gi
+                requests:
+                  cpu: 100m
+                  memory: 512Mi
+      volumeClaimTemplates:
+        - metadata:
+            name: elasticsearch-data
+          spec:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 8Gi
+            storageClassName: microk8s-hostpath
+  version: 8.12.0
