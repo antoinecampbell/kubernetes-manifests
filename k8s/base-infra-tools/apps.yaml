@@ -146,7 +146,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: elastic
-  namespace: elastic
+  namespace: argocd
   labels:
     name: elastic-operator
 spec:
