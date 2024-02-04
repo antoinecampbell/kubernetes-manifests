@@ -13,8 +13,6 @@ optimize:
 
 zeebe-gateway:
   replicas: 1
-  service:
-    type: NodePort
   resources:
     requests:
       cpu: 250m
