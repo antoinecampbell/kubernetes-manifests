@@ -170,7 +170,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: postgres
-  namespace: postgres
+  namespace: argocd
   labels:
     name: postgres
 spec:
