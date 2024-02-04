@@ -148,7 +148,7 @@ metadata:
   name: elastic
   namespace: argocd
   labels:
-    name: elastic-operator
+    name: elastic
 spec:
   project: default
   source:
