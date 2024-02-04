@@ -2,6 +2,8 @@ global:
   identity:
     auth:
       enabled: false
+  elasticsearch:
+    host: main-es-internal-http.elastic.svc.cluster.local
 
 identity:
   enabled: false
@@ -75,29 +77,7 @@ tasklist:
       requiredDuringSchedulingIgnoredDuringExecution: []
 
 elasticsearch:
-  master:
-    materOnly: true
-    replicaCount: 1
-    resources:
-      requests:
-        cpu: 250m
-        memory: 256Mi
-      limits:
-        cpu: 500m
-        memory: 1500Mi
-    persistence:
-      enabled: false
-      size: 4Gi
-  data:
-    replicaCount: 0
-  coordinating:
-    replicaCount: 0
-  ingest:
-    enabled: false
-  nodeAffinityPreset: soft
-  podAffinityPreset: soft
-  antiAffinity: soft
-  nodeAffinity: {}
+  enabled: false
 
 connectors:
   enabled: false
