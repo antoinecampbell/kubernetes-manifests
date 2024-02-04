@@ -1,0 +1,11 @@
+global:
+  postgresql:
+    auth:
+      existingSecret: postgres-password
+      secretKeys:
+        adminPasswordKey: DB_PASSWORD
+
+primary:
+  persistence:
+    size: 4Gi
+    storageClass: microk8s-hostpath

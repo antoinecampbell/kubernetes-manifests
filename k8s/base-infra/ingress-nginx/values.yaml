@@ -7,3 +7,6 @@ controller:
       enabled: false
   hostPort:
     enabled: true
+tcp:
+  5432: "postgres/main-postgresql:5432"
+  26500: "postgres/main-postgresql:5432"

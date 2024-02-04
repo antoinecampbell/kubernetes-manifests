@@ -165,3 +165,27 @@ spec:
     syncOptions:
       - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
       - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres
+  namespace: postgres
+  labels:
+    name: postgres
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    targetRevision: HEAD
+    path: k8s/base-infra-tools/postgres
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: elastic
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PruneLast=true
