@@ -1,18 +1,17 @@
 configs:
   secret:
     argocdServerAdminPassword: "$2a$10$3oZjPu9AFz33sKQ3LsQ9UuquA6RttoURjs6CXRCFazevdydHaa0ba"
+  cm:
+    kustomize.buildOptions: "--enable-helm"
 
 server:
   staticAssets:
     enabled: true
-  config:
-    kustomize.buildOptions: --enable-helm
   ingress:
-    hosts:
-    - home-server
     enabled: true
-    paths:
-      - /argocd(/|$)(.*)
+    hostname: home-server
+    path: "/argocd(/|$)(.*)"
+    pathType: ImplementationSpecific
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$2
   extraArgs:
