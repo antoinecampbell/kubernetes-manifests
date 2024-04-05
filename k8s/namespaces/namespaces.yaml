@@ -36,9 +36,9 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: knative
+  name: elastic
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: elastic
+  name: istio-system
