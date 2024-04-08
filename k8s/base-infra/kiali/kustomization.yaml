@@ -3,14 +3,14 @@ kind: Kustomization
 
 namespace: istio-system
 
-resources:
-  - ingress.yaml
-
-helmCharts:
-  - name: kiali-server
-    repo: https://kiali.org/helm-charts
-    version: 1.82.0
-    releaseName: kiali-server
-    namespace: istio-system
-    valuesFile: values.yaml
-    includeCRDs: true
+#resources:
+#  - ingress.yaml
+#
+#helmCharts:
+#  - name: kiali-server
+#    repo: https://kiali.org/helm-charts
+#    version: 1.82.0
+#    releaseName: kiali-server
+#    namespace: istio-system
+#    valuesFile: values.yaml
+#    includeCRDs: true
