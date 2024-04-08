@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/base-infra-tools/cert-manager
+    path: k8s/base-infra/cert-manager
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
@@ -130,7 +130,7 @@ spec:
   source:
     repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/base-infra-tools/elastic-operator
+    path: k8s/base-infra/elastic-operator
   destination:
     server: https://kubernetes.default.svc
     namespace: elastic
@@ -178,7 +178,7 @@ spec:
   source:
     repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/base-infra-tools/postgres
+    path: k8s/apps/postgres
   destination:
     server: https://kubernetes.default.svc
     namespace: elastic
