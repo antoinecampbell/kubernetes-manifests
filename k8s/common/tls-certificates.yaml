@@ -20,6 +20,11 @@ spec:
   issuerRef:
     name: self-signed
     kind: ClusterIssuer
-  secretName: home-server-cert
+  secretName: home-server-tls
   dnsNames:
     - "home-server"
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "keycloak"
