@@ -10,3 +10,4 @@ spec:
   secretName: web-rtc-demo-cert
   dnsNames:
     - "web-rtc-demo.home.antoine-campbell.com"
+  revisionHistoryLimit: 1
