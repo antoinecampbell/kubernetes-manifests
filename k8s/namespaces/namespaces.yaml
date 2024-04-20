@@ -46,9 +46,4 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: keycloak
----
-apiVersion: v1
-kind: Namespace
-metadata:
   name: reflector
