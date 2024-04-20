@@ -1,12 +1,25 @@
 global:
   identity:
     auth:
-      enabled: false
+      enabled: true
+      issuer: https://dev-2751166.okta.com/oauth2/default
+      issuerBackendUrl: https://dev-2751166.okta.com/oauth2/default
+      tokenUrl: https://dev-2751166.okta.com/oauth2/default/v1/token
+      jwksUrl: https://dev-2751166.okta.com/oauth2/default/v1/keys
+      type: GENERIC
+      operate:
+        clientId: 0oagl0lg72HrLWqlk5d7
+        audience: 0oagl0lg72HrLWqlk5d7
+        existingSecret: camunda-platform-secrets
   elasticsearch:
     host: main-es-internal-http.elastic.svc.cluster.local
 
 identity:
   enabled: false
+  firstUser:
+    username: admin
+    firstName: admin
+    existingSecret: camunda-platform-secrets
 
 optimize:
   enabled: false

@@ -3,6 +3,9 @@ kind: Kustomization
 
 namespace: camunda-platform
 
+resources:
+  - okta-secrets.yaml
+
 helmCharts:
   - name: camunda-platform
     repo: https://helm.camunda.io
