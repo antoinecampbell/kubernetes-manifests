@@ -237,3 +237,4 @@ spec:
     syncOptions:
       - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
       - PruneLast=true
+      - ServerSideApply=true
