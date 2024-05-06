@@ -16,6 +16,10 @@ optimize:
   enabled: false
 
 zeebe-gateway:
+  ingress:
+    host: home-server
+    enabled: true
+    path: /zeebe-gateway
   replicas: 1
   resources:
     requests:
@@ -77,6 +81,9 @@ tasklist:
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution: []
+
+prometheusServiceMonitor:
+  enabled: true
 
 elasticsearch:
   enabled: false
