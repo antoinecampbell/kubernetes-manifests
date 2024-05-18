@@ -1,0 +1,114 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: postgrest
+spec:
+  encryptedData:
+    DB_PASSWORD: AgA7jH7HVNAxMScn0NuF/zMGIJyaGBCZUhT8cucIrC3TnXUtcK0iKqTI9I0IGn4Njd7+V6/jN1c0FEc8huCGDco4XdmbfkTnmrT7EkzPTgqNjpaNVLOZTCR7gbMHlzCcKrXLjEMhSayloPzVVT7c6cngaXgeaBCkNs/dj6Mgfmy38Uv7NqZC7KNbL+pNMhf2LiIoiFYJIe6PLBOJFi4kUP9JX7lsTFV5/9FswG1AU//2CuI9tuGrUN/UU7j6QrKpbYKtJJPmDHcgxFAw8Wh0c/l+yqbGcRZsDZ2FPpATeQkI8+7MmjDCw4xnmX2ap//PvLq/CZzjXKZVLKzyCvH+In26s8K01MM/uCNEfqPOnBOfU41kXPbbAyXzTHiDrafmUpD7VFMs4bXqwYqj5yAexRMLo46e6ghD2s7dwgUKpw6h6NoRAZdUI2LfGreygKBtSBBaaGS7NySBrfmNKC1H5X4ouNAajlydl4pv1kUV/bgN/gdpBLBX0QHU36GIwhz9JAKTORJSkRpFRrXNFIc+tywy7lFkOdrH/wzKEzjZt8QnVFrzdUE8F+vv5oFcupJJ0efFMgM7RsMfnyvcebPGC2fZ805YIY54R8IITzQzGEaR986ZIUyPMOmfAL0kSTBGOpppYbZUgNhQDEttt+l7GXELBICEhrmhx1JopQ7b4jjBH/W8FRAy5H1vm9ub7LdW6og5EvQVlEk+o0M=
+  template:
+    metadata:
+      name: postgrest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgrest
+  labels:
+    app: postgrest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgrest
+  template:
+    metadata:
+      labels:
+        app: postgrest
+    spec:
+      containers:
+        - name: postgrest
+          image: app
+          ports:
+            - name: http
+              containerPort: 3000
+            - name: admin
+              containerPort: 3001
+          env:
+            - name: DB_USER
+              value: "postgrest"
+            - name: DB_HOST
+              value: "main-postgresql.postgres.svc.cluster.local"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_NAME
+              value: "postgrest"
+            - name: PGRST_DB_URI
+              value: "postgresql://$(DB_USER):$(DB_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)"
+            - name: PGRST_DB_ANON_ROLE
+              value: "web_anon"
+            - name: PGRST_DB_SCHEMAS
+              value: "public"
+            - name: PGRST_ADMIN_SERVER_PORT
+              value: "3001"
+          envFrom:
+            - secretRef:
+                name: postgrest
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: admin
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 5
+          livenessProbe:
+            httpGet:
+              path: /live
+              port: admin
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 5
+          resources:
+            limits:
+              cpu: 250m
+              memory: 256Mi
+            requests:
+              cpu: 10m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgrest
+spec:
+  selector:
+    app: postgrest
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: postgrest
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    - host: home-server
+      http:
+        paths:
+          - path: /postgrest(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: postgrest
+                port:
+                  name: http
