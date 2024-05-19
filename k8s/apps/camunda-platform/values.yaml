@@ -3,23 +3,19 @@ global:
     auth:
       enabled: false
   elasticsearch:
-    host: main-es-internal-http.elastic.svc.cluster.local
+    url:
+      host: main-es-internal-http.elastic.svc.cluster.local
+
+identityKeycloak:
+  enabled: false
 
 identity:
   enabled: false
-  firstUser:
-    username: admin
-    firstName: admin
-    existingSecret: camunda-platform-secrets
 
 optimize:
   enabled: false
 
-zeebe-gateway:
-  ingress:
-    host: home-server
-    enabled: true
-    path: /zeebe-gateway
+zeebeGateway:
   replicas: 1
   resources:
     requests:
