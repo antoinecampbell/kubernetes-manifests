@@ -26,8 +26,8 @@ zeebe-gateway:
       cpu: 250m
       memory: 256Mi
     limits:
-      cpu: 250m
-      memory: 256Mi
+      cpu: 500m
+      memory: 512Mi
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution: []
@@ -41,7 +41,7 @@ zeebe:
       cpu: 250m
       memory: 256Mi
     limits:
-      cpu: 250m
+      cpu: 500m
       memory: 512Mi
   persistenceType: local
   clusterSize: 1
