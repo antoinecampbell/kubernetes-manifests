@@ -43,7 +43,8 @@ zeebe:
     limits:
       cpu: 500m
       memory: 512Mi
-  persistenceType: local
+  persistenceType: disk
+  pvcSize: 10Gi
   clusterSize: 1
   partitionCount: 1
   replicationFactor: 1
