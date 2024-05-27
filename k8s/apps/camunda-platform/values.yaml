@@ -3,19 +3,19 @@ global:
     auth:
       enabled: false
   elasticsearch:
-    host: main-es-internal-http.elastic.svc.cluster.local
+    url:
+      host: main-es-internal-http.elastic.svc.cluster.local
+
+identityKeycloak:
+  enabled: false
 
 identity:
   enabled: false
-  firstUser:
-    username: admin
-    firstName: admin
-    existingSecret: camunda-platform-secrets
 
 optimize:
   enabled: false
 
-zeebe-gateway:
+zeebeGateway:
   ingress:
     host: home-server
     enabled: true
@@ -33,9 +33,6 @@ zeebe-gateway:
       requiredDuringSchedulingIgnoredDuringExecution: []
 
 zeebe:
-  retention:
-    enabled: true
-    minimumAge: 7d
   resources:
     requests:
       cpu: 250m
@@ -54,9 +51,6 @@ zeebe:
       requiredDuringSchedulingIgnoredDuringExecution: []
 
 operate:
-  retention:
-    enabled: true
-    minimumAge: 7d
   contextPath: /operate
   ingress:
     enabled: true
@@ -74,9 +68,6 @@ operate:
 
 tasklist:
   enabled: false
-  retention:
-    enabled: true
-    minimumAge: 7d
   contextPath: /tasklist
   ingress:
     enabled: true
