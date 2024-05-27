@@ -45,6 +45,7 @@ zeebe:
       memory: 512Mi
   persistenceType: disk
   pvcSize: 10Gi
+  pvcStorageClassName: microk8s-hostpath
   clusterSize: 1
   partitionCount: 1
   replicationFactor: 1
