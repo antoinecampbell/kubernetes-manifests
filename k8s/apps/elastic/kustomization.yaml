@@ -6,3 +6,4 @@ namespace: elastic
 resources:
   - elasticsearch.yaml
   - ingress.yaml
+#  - kibana.yaml
