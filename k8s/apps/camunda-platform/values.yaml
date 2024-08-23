@@ -49,6 +49,9 @@ zeebe:
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution: []
+  retention:
+    enabled: true
+    minimumAge: 7d
 
 operate:
   contextPath: /operate
@@ -65,6 +68,9 @@ operate:
       memory: 512Mi
   affinity:
     podAntiAffinity: {}
+  retention:
+    enabled: true
+    minimumAge: 7d
 
 tasklist:
   enabled: false
@@ -83,6 +89,9 @@ tasklist:
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution: []
+  retention:
+    enabled: true
+    minimumAge: 7d
 
 prometheusServiceMonitor:
   enabled: true
