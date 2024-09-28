@@ -16,10 +16,16 @@ optimize:
   enabled: false
 
 zeebeGateway:
+  contextPath: /zeebe-gateway-rest
   ingress:
-    host: home-server
-    enabled: true
-    path: /zeebe-gateway
+    grpc:
+      enabled: true
+      path: /zeebe-gateway-grpc
+      host: home-server
+    rest:
+      enabled: true
+      path: /zeebe-gateway-rest
+      host: home-server
   replicas: 1
   resources:
     requests:
