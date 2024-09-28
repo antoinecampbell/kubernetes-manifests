@@ -19,7 +19,7 @@ zeebeGateway:
   contextPath: /zeebe-gateway-rest
   ingress:
     grpc:
-      enabled: true
+      enabled: false
       path: /zeebe-gateway-grpc
       host: home-server
     rest:
