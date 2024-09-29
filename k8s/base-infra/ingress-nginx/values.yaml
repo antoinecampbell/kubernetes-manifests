@@ -11,4 +11,4 @@ controller:
     type: Recreate
 tcp:
   5432: "postgres/main-postgresql:5432"
-  26500: "camunda-platform/camunda-platform-zeebe-gateway:26500"
+#  26500: "camunda-platform/camunda-platform-zeebe-gateway:26500"
