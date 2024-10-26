@@ -41,17 +41,7 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: istio-system
----
-apiVersion: v1
-kind: Namespace
-metadata:
   name: reflector
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: supabase
 ---
 apiVersion: v1
 kind: Namespace
