@@ -19,5 +19,3 @@ spec:
             pathType: ImplementationSpecific
   tls:
     - secretName: home-server-wildcard
-      hosts:
-        - elasticsearch.home-server.antoine-campbell.com

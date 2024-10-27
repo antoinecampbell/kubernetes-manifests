@@ -114,5 +114,3 @@ spec:
                   name: http
   tls:
     - secretName: home-server-wildcard
-      hosts:
-        - postgrest.home-server.antoine-campbell.com

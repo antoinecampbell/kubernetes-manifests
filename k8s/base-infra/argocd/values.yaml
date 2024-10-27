@@ -18,5 +18,3 @@ server:
     enabled: true
     extraTls:
       - secretName: home-server-wildcard
-        hosts:
-          - argocd.home-server.antoine-campbell.com
