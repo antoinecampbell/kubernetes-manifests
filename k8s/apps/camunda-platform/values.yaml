@@ -27,8 +27,13 @@ zeebeGateway:
         enabled: true
         secretName: home-server-wildcard
     rest:
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: true
       enabled: true
       host: zeebe-gateway-rest.home-server.antoine-campbell.com
+      tls:
+        enabled: true
+        secretName: home-server-wildcard
   replicas: 1
   resources:
     requests:
