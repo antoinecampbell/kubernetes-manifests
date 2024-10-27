@@ -3,6 +3,26 @@ kind: Kustomization
 
 namespace: camunda-platform
 
+configMapGenerator:
+  - name: zeebe-grafana-dashboard
+    files:
+      - grafana-dashboards/zeebe.json
+    options:
+      disableNameSuffixHash: true
+      annotations:
+        argocd.argoproj.io/sync-options: ServerSideApply=true
+      labels:
+        grafana_dashboard: "1"
+  - name: zeebe-overview-grafana-dashboard
+    files:
+      - grafana-dashboards/zeebe-overview.json
+    options:
+      disableNameSuffixHash: true
+      annotations:
+        argocd.argoproj.io/sync-options: ServerSideApply=true
+      labels:
+        grafana_dashboard: "1"
+
 helmCharts:
   - name: camunda-platform
     repo: https://helm.camunda.io
