@@ -1,35 +1,34 @@
 prometheus:
   prometheusSpec:
     retention: 7d
-    routePrefix: /prometheus
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
   ingress:
     enabled: true
-    path: /prometheus
     hosts:
-      - home-server
+      - prometheus.home-server.antoine-campbell.com
+    tls:
+      - secretName: home-server-wildcard
+        hosts:
+          - prometheus.home-server.antoine-campbell.com
 alertmanager:
-  alertmanagerSpec:
-    routePrefix: /alertmanager
   ingress:
     enabled: true
-    path: /alertmanager
     hosts:
-      - home-server
+      - alertmanager.home-server.antoine-campbell.com
+    tls:
+      - secretName: home-server-wildcard
+        hosts:
+          - alertmanager.home-server.antoine-campbell.com
 grafana:
-  sidecar:
-    datasources:
-      url: http://kube-prom-kube-prometheus-prometheus.monitoring:9090/prometheus/
   grafana.ini:
     server:
-      domain: home-server
-      root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana"
-      serve_from_sub_path: true
+      domain: grafana.home-server.antoine-campbell.com
   ingress:
     enabled: true
-    path: /grafana
     hosts:
-      - home-server
-#kubelet:
-#  enabled: false
+      - grafana.home-server.antoine-campbell.com
+    tls:
+      - secretName: home-server-wildcard
+        hosts:
+          - grafana.home-server.antoine-campbell.com
