@@ -3,18 +3,20 @@ configs:
     argocdServerAdminPassword: "$2a$10$3oZjPu9AFz33sKQ3LsQ9UuquA6RttoURjs6CXRCFazevdydHaa0ba"
   cm:
     kustomize.buildOptions: "--enable-helm"
+  params:
+    server.insecure: true
+
+global:
+  domain: argocd.home-server.antoine-campbell.com
 
 server:
   staticAssets:
     enabled: true
   ingress:
-    enabled: true
-    hostname: home-server
-    path: "/argocd(/|$)(.*)"
-    pathType: ImplementationSpecific
     annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /$2
-  extraArgs:
-    - --insecure
-    - --basehref
-    - /argocd
+      nginx.ingress.kubernetes.io/force-ssl-redirect: true
+    enabled: true
+    extraTls:
+      - secretName: home-server-wildcard
+        hosts:
+          - argocd.home-server.antoine-campbell.com
