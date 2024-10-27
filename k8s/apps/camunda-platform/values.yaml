@@ -21,11 +21,11 @@ zeebeGateway:
       annotations:
         nginx.ingress.kubernetes.io/ssl-redirect: true
         nginx.ingress.kubernetes.io/backend-protocol: GRPC
-        cert-manager.io/cluster-issuer: self-signed
       enabled: true
       host: zeebe-gateway.home-server.antoine-campbell.com
       tls:
         enabled: true
+        secretName: home-server-wildcard
     rest:
       enabled: true
       host: zeebe-gateway-rest.home-server.antoine-campbell.com
@@ -66,11 +66,11 @@ operate:
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: true
-      cert-manager.io/cluster-issuer: self-signed
     enabled: true
     host: operate.home-server.antoine-campbell.com
     tls:
       enabled: true
+      secretName: home-server-wildcard
   resources:
     requests:
       cpu: 250m
@@ -89,9 +89,11 @@ tasklist:
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: true
-      cert-manager.io/cluster-issuer: self-signed
     enabled: true
     host: tasklist.home-server.antoine-campbell.com
+    tls:
+      enabled: true
+      secretName: home-server-wildcard
   resources:
     requests:
       cpu: 250m
