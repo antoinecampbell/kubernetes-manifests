@@ -16,16 +16,19 @@ optimize:
   enabled: false
 
 zeebeGateway:
-  contextPath: /zeebe-gateway-rest
   ingress:
     grpc:
-      enabled: false
-      path: /zeebe-gateway-grpc
-      host: home-server
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: true
+        nginx.ingress.kubernetes.io/backend-protocol: GRPC
+        cert-manager.io/cluster-issuer: self-signed
+      enabled: true
+      host: zeebe-gateway.home-server.antoine-campbell.com
+      tls:
+        enabled: true
     rest:
       enabled: true
-      path: /zeebe-gateway-rest
-      host: home-server
+      host: zeebe-gateway-rest.home-server.antoine-campbell.com
   replicas: 1
   resources:
     requests:
@@ -36,7 +39,7 @@ zeebeGateway:
       memory: 512Mi
   affinity:
     podAntiAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution: []
+      requiredDuringSchedulingIgnoredDuringExecution: [ ]
 
 zeebe:
   resources:
@@ -54,17 +57,20 @@ zeebe:
   replicationFactor: 1
   affinity:
     podAntiAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution: []
+      requiredDuringSchedulingIgnoredDuringExecution: [ ]
   retention:
     enabled: true
     minimumAge: 7d
 
 operate:
-  contextPath: /operate
   ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: true
+      cert-manager.io/cluster-issuer: self-signed
     enabled: true
-    host: home-server
-    path: /operate
+    host: operate.home-server.antoine-campbell.com
+    tls:
+      enabled: true
   resources:
     requests:
       cpu: 250m
@@ -73,18 +79,19 @@ operate:
       cpu: 250m
       memory: 512Mi
   affinity:
-    podAntiAffinity: {}
+    podAntiAffinity: { }
   retention:
     enabled: true
     minimumAge: 7d
 
 tasklist:
   enabled: false
-  contextPath: /tasklist
   ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: true
+      cert-manager.io/cluster-issuer: self-signed
     enabled: true
-    host: home-server
-    path: /tasklist
+    host: tasklist.home-server.antoine-campbell.com
   resources:
     requests:
       cpu: 250m
@@ -94,7 +101,7 @@ tasklist:
       memory: 512Mi
   affinity:
     podAntiAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution: []
+      requiredDuringSchedulingIgnoredDuringExecution: [ ]
   retention:
     enabled: true
     minimumAge: 7d
