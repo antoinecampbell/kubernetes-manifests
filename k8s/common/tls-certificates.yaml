@@ -1,3 +1,4 @@
+---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -10,4 +11,26 @@ spec:
   secretName: web-rtc-demo-cert
   dnsNames:
     - "web-rtc-demo.home.antoine-campbell.com"
+  revisionHistoryLimit: 1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: home-server-wildcard
+  namespace: default
+spec:
+  isCA: true
+  commonName: home-server-wildcard
+  issuerRef:
+    name: self-signed
+    kind: ClusterIssuer
+  secretName: home-server-wildcard
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "camunda-platform,argocd"
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+  dnsNames:
+    - "*.home-server.antoine-campbell.com"
+    - "home-server.antoine-campbell.com"
   revisionHistoryLimit: 1
