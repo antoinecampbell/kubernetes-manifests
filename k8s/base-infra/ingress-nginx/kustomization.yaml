@@ -3,6 +3,26 @@ kind: Kustomization
 
 namespace: ingress-nginx
 
+configMapGenerator:
+  - name: nginx-grafana-dashboard
+    files:
+      - grafana-dashboards/nginx.json
+    options:
+      disableNameSuffixHash: true
+      annotations:
+        argocd.argoproj.io/sync-options: ServerSideApply=true
+      labels:
+        grafana_dashboard: "1"
+  - name: request-handling-performance-grafana-dashboard
+    files:
+      - grafana-dashboards/request-handling-performance.json
+    options:
+      disableNameSuffixHash: true
+      annotations:
+        argocd.argoproj.io/sync-options: ServerSideApply=true
+      labels:
+        grafana_dashboard: "1"
+
 helmCharts:
   - name: ingress-nginx
     repo: https://kubernetes.github.io/ingress-nginx
