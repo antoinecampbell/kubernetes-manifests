@@ -3,11 +3,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
   name: elasticsearch-main
 spec:
   rules:
-    - host: home-server
+    - host: elasticsearch.home-server.antoine-campbell.com
       http:
         paths:
           - backend:
@@ -15,5 +15,9 @@ spec:
                 name: main-es-default
                 port:
                   name: http
-            path: /elasticsearch(/|$)(.*)
-            pathType: Prefix
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - secretName: home-server-wildcard
+      hosts:
+        - elasticsearch.home-server.antoine-campbell.com
