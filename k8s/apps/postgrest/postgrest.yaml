@@ -99,16 +99,20 @@ kind: Ingress
 metadata:
   name: postgrest
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   rules:
-    - host: home-server
+    - host: postgrest.home-server.antoine-campbell.com
       http:
         paths:
-          - path: /postgrest(/|$)(.*)
-            pathType: Prefix
+          - path: /
+            pathType: ImplementationSpecific
             backend:
               service:
                 name: postgrest
                 port:
                   name: http
+  tls:
+    - secretName: home-server-wildcard
+      hosts:
+        - postgrest.home-server.antoine-campbell.com
