@@ -3,6 +3,17 @@ kind: Kustomization
 
 namespace: cert-manager
 
+configMapGenerator:
+  - name: cert-manager-grafana-dashboard
+    files:
+      - grafana-dashboards/cert-manager.json
+    options:
+      disableNameSuffixHash: true
+      annotations:
+        argocd.argoproj.io/sync-options: ServerSideApply=true
+      labels:
+        grafana_dashboard: "1"
+
 resources:
   - issuer-self-signed.yaml
   - issuer-staging.yaml
