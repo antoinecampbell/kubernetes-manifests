@@ -10,3 +10,7 @@ master:
     type: NodePort
     nodePorts:
       redis: 30637
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
