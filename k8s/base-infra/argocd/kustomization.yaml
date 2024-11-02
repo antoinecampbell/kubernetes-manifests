@@ -11,3 +11,6 @@ helmCharts:
     releaseName: argo-cd
     namespace: argocd
     includeCRDs: true
+    apiVersions:
+      - monitoring.coreos.com/v1
+
