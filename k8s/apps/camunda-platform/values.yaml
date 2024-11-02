@@ -19,21 +19,23 @@ zeebeGateway:
   ingress:
     grpc:
       annotations:
-        nginx.ingress.kubernetes.io/ssl-redirect: true
+        nginx.ingress.kubernetes.io/ssl-redirect: false
         nginx.ingress.kubernetes.io/backend-protocol: GRPC
+        nginx.ingress.kubernetes.io/whitelist-source-range: "192.168.2.0/24,10.8.0.0/24"
       enabled: true
-      host: zeebe-gateway.home-server.antoine-campbell.com
+      host: zeebe-gateway.home.antoine-campbell.com
       tls:
         enabled: true
-        secretName: home-server-wildcard
+        secretName: zeebe-tls
     rest:
       annotations:
         nginx.ingress.kubernetes.io/ssl-redirect: true
+        nginx.ingress.kubernetes.io/whitelist-source-range: "192.168.2.0/24,10.8.0.0/24"
       enabled: true
-      host: zeebe-gateway-rest.home-server.antoine-campbell.com
+      host: zeebe-gateway-rest.home.antoine-campbell.com
       tls:
         enabled: true
-        secretName: home-server-wildcard
+        secretName: zeebe-tls
   replicas: 1
   resources:
     requests:
