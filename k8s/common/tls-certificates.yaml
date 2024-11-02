@@ -19,7 +19,6 @@ metadata:
   name: home-server-wildcard
   namespace: default
 spec:
-  isCA: true
   commonName: home-server-wildcard
   issuerRef:
     name: self-signed
@@ -33,4 +32,24 @@ spec:
   dnsNames:
     - "*.home-server.antoine-campbell.com"
     - "home-server.antoine-campbell.com"
+  revisionHistoryLimit: 1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: zeebe-tls
+  namespace: default
+spec:
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  secretName: zeebe-tls
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "camunda-platform"
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+  dnsNames:
+    - "zeebe-gateway.home.antoine-campbell.com"
+    - "zeebe-gateway-rest.home.antoine-campbell.com"
   revisionHistoryLimit: 1
