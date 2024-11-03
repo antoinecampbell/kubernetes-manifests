@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: ghcr.io/antoinecampbell/ktor-worker:latest
+          image: app
           ports:
             - containerPort: 8080
               name: http
@@ -27,6 +27,8 @@ spec:
               value: http://camunda-platform-zeebe-gateway.camunda-platform.svc.cluster.local:26500
             - name: ZEEBE_REST_ADDRESS
               value: http://camunda-platform-zeebe-gateway.camunda-platform.svc.cluster.local:8080
+            - name: ZEEBE_INSECURE_CONNECTION
+              value: "true"
           resources:
             requests:
               cpu: 50m

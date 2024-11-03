@@ -5,3 +5,8 @@ namespace: default
 
 resources:
   - app.yaml
+
+images:
+  - name: app
+    newName: ghcr.io/antoinecampbell/ktor-camunda-worker
+    newTag: 1.0.0
