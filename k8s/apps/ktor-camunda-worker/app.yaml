@@ -31,8 +31,8 @@ spec:
             requests:
               cpu: 50m
             limits:
-              cpu: 250m
-              memory: 256Mi
+              cpu: 500m
+              memory: 1Gi
           readinessProbe:
             httpGet:
               port: http
