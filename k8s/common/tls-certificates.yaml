@@ -33,6 +33,7 @@ spec:
     - "*.home-server.antoine-campbell.com"
     - "home-server.antoine-campbell.com"
   revisionHistoryLimit: 1
+  duration: 87600h # 10 years
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
