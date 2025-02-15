@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: rabbitmq
+
+helmCharts:
+  - name: rabbitmq-cluster-operator
+    repo: oci://registry-1.docker.io/bitnamicharts
+    version: 4.4.3
+    valuesFile: values.yaml
+    releaseName: main
+    namespace: rabbitmq
+    includeCRDs: true
+
+resources:
+  - cluster.yaml

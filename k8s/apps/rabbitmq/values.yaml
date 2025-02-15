@@ -1,0 +1,23 @@
+clusterOperator:
+  metrics:
+    service:
+      enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: monitoring
+      path: /metrics
+      honorLabels: true
+  networkPolicy:
+    enabled: false
+msgTopologyOperator:
+  enabled: true
+  metrics:
+    service:
+      enabled: true
+    serviceMonitor:
+      enabled: true
+      namespace: monitoring
+      path: /metrics
+      honorLabels: true
+  networkPolicy:
+    enabled: false

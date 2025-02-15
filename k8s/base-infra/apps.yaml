@@ -310,7 +310,6 @@ spec:
     syncOptions:
       - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
       - PruneLast=true
-
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -328,6 +327,30 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rabbitmq
+  namespace: argocd
+  labels:
+    name: rabbitmq
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    targetRevision: HEAD
+    path: k8s/apps/rabbitmq
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: rabbitmq
   syncPolicy:
     automated:
       prune: true
