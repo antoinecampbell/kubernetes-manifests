@@ -26,7 +26,7 @@ configMapGenerator:
 helmCharts:
   - name: ingress-nginx
     repo: https://kubernetes.github.io/ingress-nginx
-    version: 4.2.3
+    version: 4.12.1
     valuesFile: values.yaml
     releaseName: ingress-nginx
     namespace: ingress-nginx
