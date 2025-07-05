@@ -15,6 +15,32 @@ spec:
       cpu: 100m
       memory: 512Mi
 ---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: app1-credentials
+  namespace: rabbitmq
+spec:
+  encryptedData:
+    password: AgBCmRfIub2B7DtiEFiZgHvDYeKS3X5+leUR8RX54qt6kS2zMz4kcn7qysMqjWj4rz3jPVKjupY4zrCeOySF5LWO9Fk3vf3QIlNSsziLMt+r+rvFD7wCueCM3NJgZnAbzZjt2aqbutup6dCjd3bcQQDFxDTirheamAPMIAcUbu8wNmavTAub8pbK4i3PU8Ln+LnB+Cz3OFdyVxjTB0mLdZEzd3NS1Qc3MXd2eAQYtCkSeM2emGzWbIEmaWwmSxv88CIkEsO7i5yM6KJPL2gv23jKNDxuD96MrNILu6N44Lgcgejdd3jtbcctpN40AEONCBm392ytg8rMx2VDbxJzSwm1w450VHYdeZ6oe7kDDGfoXFPIyARTByX3372jIqNlMNsn+9pnh7IZ6U/ZGT6rj9jXTMlKtGhUHiW4uLeHGOkaXjOf34WFXfZSiXOEoMngxkCEOqtkTFbY04KGCRlUo1gNr+HDU2bsmR+fFAkgN1mL8NcP5gvIcjJSFMBBbOhlCH4HfsN9DMdmJ2YkTRJhe6BxZ7YMjBezNMNO12LaGRK6VL6sgxIJvgIY8roU7btyTuxNz2hNb9uRN2J6sf4s3fmkBB8LbxYQKEnZGBJsZBhPT7NWyJ7S3ScoG+/OdUtyhNf+JCaWVExJm9XFmFLR+2aHngEYqxwBKIWtD/GkWGilavJZEQjwk5SKKVb9E44uUwCbJWN1
+    username: AgCejVbBJFR8EGvyEpF22xF9aUm07yMUazyChXf8IAe8kQnMCCRhMVkJa4Zga5GGt/sYX8gHogqbg3pNTNUWfc0vEx3F6/rgcxBnQQphRSnGEx94nQpASrghVIkNCWg13FWZPU4ZjVcl5VDg/MTjd7FtT1/U8LinLkH31ZXtSqWQNa97qQzkvPLLud2aszF4oMSqBmFJnYjiE9ZlMXYYEeN4hsTyAlyNP4aInmB08xoS6ofG2IRmWx9sU1adPav8jzDZlsYVJ7H799b5ECnUDpWwYjk6ulgIZ1ix0PNcAP9ibTYPOOQD3WJ86oFWfrrfJt6oDDyflW7n0SNAKDXhFfS0+ZqZxZNtbD6+Wzfzyay5vXZHCFohciuhJtwS+/78bIqLE+4Jn97g4HoeLgeazvkfuxPrcCA2AN7sQ3JLITthd0VxgzZzVRCNGU5stXhQOEzPmGFSufSg7t7sUyzx1mF03wLZ+8UOLQKxkXVYPN74nNH5Aw7vR6Uv2sYLxEk9pXtHUb1CPeJvS1HTVw9eM/ww0Z2k6twvA3KQ3A8qlOEfu98YNrJd0eEEo6QhCFbcDe9dqdU0phMQsWfG/rswKvuauxCIDobKg3Vhhx+7vULw7lTaY0JrgYoxESJuSpkdj0aBq3b2L/GpEgB0QPCLdOBgn1XQRvHZ7wVpjmG/TZBzigwiVRs5MHKzmmxXuM5x6XDzklGO
+  template:
+    metadata:
+      name: app1-credentials
+      namespace: rabbitmq
+---
+apiVersion: rabbitmq.com/v1beta1
+kind: User
+metadata:
+  name: app1
+  namespace: rabbitmq
+spec:
+  importCredentialsSecret:
+    name: app1-credentials
+  rabbitmqClusterReference:
+    namespace: rabbitmq
+    name: main-rabbitmq
+---
 # Ingress
 apiVersion: networking.k8s.io/v1
 kind: Ingress
