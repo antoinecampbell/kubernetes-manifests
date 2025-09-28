@@ -52,3 +52,15 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: rabbitmq
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: istio-system
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: istio-demo
+  labels:
+    istio.io/dataplane-mode: ambient
