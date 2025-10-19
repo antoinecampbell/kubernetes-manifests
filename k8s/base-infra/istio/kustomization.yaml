@@ -1,0 +1,37 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: istio-system
+
+helmCharts:
+  - name: base
+    repo: https://istio-release.storage.googleapis.com/charts
+    version: 1.27.1
+    valuesFile: values.yaml
+    releaseName: base
+    namespace: istio-system
+    includeCRDs: true
+  - name: istiod
+    repo: https://istio-release.storage.googleapis.com/charts
+    version: 1.27.1
+    valuesFile: values.yaml
+    releaseName: istiod
+    namespace: istio-system
+    includeCRDs: true
+  - name: cni
+    repo: https://istio-release.storage.googleapis.com/charts
+    version: 1.27.1
+    valuesFile: values.yaml
+    releaseName: cni
+    namespace: istio-system
+    includeCRDs: true
+  - name: ztunnel
+    repo: https://istio-release.storage.googleapis.com/charts
+    version: 1.27.1
+    valuesFile: values.yaml
+    releaseName: ztunnel
+    namespace: istio-system
+    includeCRDs: true
+
+resources:
+  - k8s-gateway-crds-1.3.0.yaml

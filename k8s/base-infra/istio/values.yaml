@@ -1,0 +1,14 @@
+profile: ambient
+global:
+  proxy:
+    resources:
+      requests:
+      limits:
+  waypoint:
+    resources:
+      requests:
+      limits:
+  proxy_init:
+    resources:
+      requests:
+      limits:
