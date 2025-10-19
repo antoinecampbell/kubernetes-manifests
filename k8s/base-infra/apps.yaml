@@ -375,7 +375,7 @@ spec:
     path: k8s/base-infra/istio
   destination:
     server: https://kubernetes.default.svc
-    namespace: istio
+    namespace: istio-system
   syncPolicy:
     automated:
       prune: true
