@@ -64,3 +64,8 @@ metadata:
   name: istio-demo
   labels:
     istio.io/dataplane-mode: ambient
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cloudflare
