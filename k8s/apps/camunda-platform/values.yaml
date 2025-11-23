@@ -41,9 +41,7 @@ zeebeGateway:
     requests:
       cpu: 250m
       memory: 256Mi
-    limits:
-      cpu: 500m
-      memory: 512Mi
+    limits: {}
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution: [ ]
@@ -53,9 +51,7 @@ zeebe:
     requests:
       cpu: 250m
       memory: 256Mi
-    limits:
-      cpu: 1000m
-      memory: 2Gi
+    limits: {}
   persistenceType: disk
   pvcSize: 10Gi
   pvcStorageClassName: microk8s-hostpath
@@ -82,9 +78,7 @@ operate:
     requests:
       cpu: 250m
       memory: 256Mi
-    limits:
-      cpu: 250m
-      memory: 512Mi
+    limits: {}
   affinity:
     podAntiAffinity: { }
   retention:
@@ -105,9 +99,7 @@ tasklist:
     requests:
       cpu: 250m
       memory: 256Mi
-    limits:
-      cpu: 250m
-      memory: 512Mi
+    limits: {}
   affinity:
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution: [ ]
