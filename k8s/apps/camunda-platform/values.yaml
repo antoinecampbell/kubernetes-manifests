@@ -55,7 +55,7 @@ zeebe:
       memory: 256Mi
     limits:
       cpu: null
-      memory: 2Gi
+      memory: 1Gi
   persistenceType: disk
   pvcSize: 10Gi
   pvcStorageClassName: microk8s-hostpath
