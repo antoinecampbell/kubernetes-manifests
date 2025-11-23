@@ -39,7 +39,7 @@ zeebeGateway:
   replicas: 1
   resources:
     requests:
-      cpu: 250m
+      cpu: null
       memory: 256Mi
     limits:
       cpu: null
@@ -51,7 +51,7 @@ zeebeGateway:
 zeebe:
   resources:
     requests:
-      cpu: 250m
+      cpu: null
       memory: 256Mi
     limits:
       cpu: null
@@ -80,7 +80,7 @@ operate:
       secretName: home-server-wildcard
   resources:
     requests:
-      cpu: 250m
+      cpu: null
       memory: 256Mi
     limits:
       cpu: null
@@ -103,10 +103,10 @@ tasklist:
       secretName: home-server-wildcard
   resources:
     requests:
-      cpu: 250m
+      cpu: null
       memory: 256Mi
     limits:
-      cpu: 250m
+      cpu: null
       memory: 512Mi
   affinity:
     podAntiAffinity:
