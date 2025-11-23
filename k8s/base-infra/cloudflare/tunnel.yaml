@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cloudflare-tunnel
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: cloudflare-tunnel
+spec:
+  encryptedData:
+    TUNNEL_TOKEN: AgBAFJqV+Do3Onp00JVwBCQBZ0ZmrJ2op253aAlJ9hNtWABofocIlP1fos60ztjVJQWamEDgYRQ0NVCdQOg4ViDmC6KQEQr39uy+14jsYa8QD9rGiRFi0NHT3+Rc4avqgyNPAAOidMwayMoZK3LoItoYpaM8IfMa4CiEN+/HwoN2vUjzE+dnGa3I9B+WjEjWwAiBO+OYoyUUlab4KknVOn5gYAvH3BKLlMxb78klsmvWWfL17wRxQ+pjVebJB073J3YEAeCp2mwJtQOBmE5kCrJ3MgtmmYyGNmoKtIlNyVG5d5Gi0AFuSpdgAQqY05oeNYBNW7cMrDi5JdgrsiHUbKM7OSZDSNxpH+qwyCI6ByLuf58iKWSW0JD5F5HhW7CEGpL1fbEvODPXqyuyyjoh1FitnftFXZoWwUZAQQx/B6QXLNiRt+n5HQuRab3WpwyHSNLNtsthzNLsqsnjTucKJUfus+IAz+W8YElsZNdUbVmazvubXh5N/eZboI5x6GO4i5qaOzDGTe0wbkhYHlBPBqrbjHRF3K5729iHz0O2uzFf8+0HF2kxbxMbjwCFrobM8b0GM1jfQorMya+gU1xGA2FaIWVRIIVVyZNp5EhPwTUyNcPo1Hmbklx/JnWHSpJHXbufDkzKOXKFUrK4xCnBdGfceri3B/fXoKyHR3ZjchfV2i0ab/MNcgB0GaQ41qTUHzfaZtM3OH92EmvAyH9Vu0+TIzV4lmwcTpC8w+B7LbgwCu2P7HOcl4TJ4UqrDqqsuRXgS6eZMd7HSA2ORLqYbkp0P+5UPH7UKGGdvoW3RycfhwJKK+c4Vtc1V0doV0j09iqlUsxR8m7oyVoGJ7Kyr6dm9d3yXwObTANiyj5GzSIQHXZy++jOdQyGJr0z30nOzTIEa1IVBT9BAp2ggQUmgSfohEHu2MI/V0WdqJvgHXTR8vQlJZwDh0Jl
+  template:
+    metadata:
+      name: cloudflare-tunnel
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflare-tunnel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflare-tunnel
+  template:
+    metadata:
+      labels:
+        app: cloudflare-tunnel
+    spec:
+      containers:
+        - command:
+            - cloudflared
+            - tunnel
+            - --no-autoupdate
+            - --metrics
+            - 0.0.0.0:2000
+            - run
+          env:
+            - name: TUNNEL_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: TUNNEL_TOKEN
+                  name: cloudflare-tunnel
+          image: cloudflare/cloudflared:2025.11.1
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 1
+            httpGet:
+              path: /ready
+              port: 2000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          name: cloudflared
+      serviceAccountName: cloudflare-tunnel
