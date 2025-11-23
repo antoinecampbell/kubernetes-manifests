@@ -1,3 +1,7 @@
 profile: ambient
 global:
   platform: microk8s
+resources:
+  requests:
+    cpu: 100m
+    memory: 2048Mi
