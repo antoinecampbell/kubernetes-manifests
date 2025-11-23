@@ -80,10 +80,10 @@ operate:
       secretName: home-server-wildcard
   resources:
     requests:
-      cpu: 50m
+      cpu: null
       memory: 256Mi
     limits:
-      cpu: 250m
+      cpu: null
       memory: 512Mi
   affinity:
     podAntiAffinity: { }
