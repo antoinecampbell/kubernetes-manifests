@@ -3,7 +3,6 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: webrtc-demo
-  namespace: default
 spec:
   issuerRef:
     name: letsencrypt-prod
@@ -17,7 +16,6 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: home-server-wildcard
-  namespace: default
 spec:
   commonName: home-server-wildcard
   issuerRef:
@@ -39,7 +37,6 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: zeebe-tls
-  namespace: default
 spec:
   issuerRef:
     name: letsencrypt-prod
