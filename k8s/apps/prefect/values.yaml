@@ -1,0 +1,28 @@
+server:
+  basicAuth:
+    existingSecret: prefect-admin-credentials
+  resources:
+    requests:
+      cpu: null
+      memory: 128Mi
+    limits:
+      cpu: null
+      memory: 512Mi
+  uiConfig:
+    prefectUiApiUrl: https://prefect.home-server.antoine-campbell.com/api
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  host:
+    hostname: prefect.home-server.antoine-campbell.com
+  extraTls:
+    - hosts:
+        - prefect.home-server.antoine-campbell.com
+      secretName: home-server-wildcard
+postgresql:
+  enabled: false
+secret:
+  create: false
+sqlite:
+  enabled: true

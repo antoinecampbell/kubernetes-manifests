@@ -19,7 +19,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -43,7 +43,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -67,7 +67,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -91,7 +91,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -115,7 +115,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -139,7 +139,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -163,7 +163,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -187,7 +187,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -211,7 +211,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -235,7 +235,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -259,7 +259,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
       - ServerSideApply=true
 ---
@@ -284,7 +284,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -308,7 +308,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -332,7 +332,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -356,7 +356,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -380,7 +380,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
       - RespectIgnoreDifferences=true
   ignoreDifferences:
@@ -416,6 +416,31 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-      - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+      - RespectIgnoreDifferences=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prefect
+  namespace: argocd
+  labels:
+    name: prefect
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    targetRevision: HEAD
+    path: k8s/apps/prefect
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
       - RespectIgnoreDifferences=true
