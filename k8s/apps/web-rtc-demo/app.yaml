@@ -46,8 +46,6 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: true
   name: web-rtc-demo
   labels:
     app: web-rtc-demo
@@ -63,5 +61,3 @@ spec:
                   name: http
             path: /
             pathType: Prefix
-  tls:
-    - secretName: web-rtc-demo-cert

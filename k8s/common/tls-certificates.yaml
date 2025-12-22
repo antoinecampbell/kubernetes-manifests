@@ -2,19 +2,6 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: webrtc-demo
-spec:
-  issuerRef:
-    name: letsencrypt-prod
-    kind: ClusterIssuer
-  secretName: web-rtc-demo-cert
-  dnsNames:
-    - "web-rtc-demo.home.antoine-campbell.com"
-  revisionHistoryLimit: 1
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
   name: home-server-wildcard
 spec:
   commonName: home-server-wildcard
