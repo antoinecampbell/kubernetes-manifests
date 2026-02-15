@@ -42,7 +42,7 @@ spec:
                 secretKeyRef:
                   key: TUNNEL_TOKEN
                   name: cloudflare-tunnel
-          image: cloudflare/cloudflared:2025.11.1
+          image: cloudflare/cloudflared:2026.2.0
           imagePullPolicy: IfNotPresent
           livenessProbe:
             failureThreshold: 1
