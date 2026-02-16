@@ -51,7 +51,7 @@ metadata:
     app: web-rtc-demo
 spec:
   rules:
-    - host: web-rtc-demo.home.antoine-campbell.com
+    - host: web-rtc-demo.home-server.antoine-campbell.com
       http:
         paths:
           - backend:
@@ -61,3 +61,7 @@ spec:
                   name: http
             path: /
             pathType: Prefix
+  tls:
+    - hosts:
+        - web-rtc-demo.home-server.antoine-campbell.com
+      secretName: home-server-wildcard
