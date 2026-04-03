@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/cert-manager
   destination:
@@ -32,7 +32,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/sealed-secrets
   destination:
@@ -56,7 +56,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/apps/web-rtc-demo
   destination:
@@ -80,7 +80,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/common
   destination:
@@ -104,7 +104,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/apps/camunda-platform
   destination:
@@ -128,7 +128,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/elastic-operator
   destination:
@@ -152,7 +152,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/apps/elastic
   destination:
@@ -176,7 +176,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/apps/postgres
   destination:
@@ -200,7 +200,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/reflector
   destination:
@@ -224,7 +224,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/apps/postgrest
   destination:
@@ -248,7 +248,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/monitoring
   destination:
@@ -273,7 +273,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/apps/ktor-camunda-worker
   destination:
@@ -297,7 +297,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/apps/redis
   destination:
@@ -321,7 +321,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/ingress-nginx
   destination:
@@ -345,7 +345,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/apps/rabbitmq
   destination:
@@ -369,7 +369,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/istio
   destination:
@@ -405,7 +405,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/cloudflare
   destination:
@@ -430,7 +430,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/apps/prefect
   destination:
@@ -455,7 +455,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/loki
   destination:
@@ -480,7 +480,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/antoinecampbell/kubernetes-manifests.git
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
     path: k8s/base-infra/alloy
   destination:
