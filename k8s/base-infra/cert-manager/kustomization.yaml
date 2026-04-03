@@ -17,7 +17,9 @@ configMapGenerator:
 resources:
   - issuer-self-signed.yaml
   - issuer-staging.yaml
+  - issuer-dns-staging.yaml
   - issuer-prod.yaml
+  - secrets.yaml
 
 helmCharts:
   - name: cert-manager
