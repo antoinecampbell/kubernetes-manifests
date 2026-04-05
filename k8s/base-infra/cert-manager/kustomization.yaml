@@ -15,8 +15,9 @@ configMapGenerator:
         grafana_dashboard: "1"
 
 resources:
-  - issuer-self-signed.yaml
+  - issuer-dns-prod.yaml
   - issuer-dns-staging.yaml
+  - issuer-self-signed.yaml
   - secrets.yaml
 
 helmCharts:
