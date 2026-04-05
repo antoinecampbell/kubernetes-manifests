@@ -13,7 +13,10 @@ spec:
       name: letsencrypt-dns-staging
     # Enable the HTTP-01 challenge provider
     solvers:
-      - dns01:
+      - selector:
+          dnsNames:
+            - home-server.anotine-campbell.com
+        dns01:
           cloudflare:
             email: antoine.s.campbell@gmail.com
             # !! Remember to create a k8s secret before
