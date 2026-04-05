@@ -16,15 +16,13 @@ configMapGenerator:
 
 resources:
   - issuer-self-signed.yaml
-  - issuer-staging.yaml
   - issuer-dns-staging.yaml
-  - issuer-prod.yaml
   - secrets.yaml
 
 helmCharts:
   - name: cert-manager
-    repo:  https://charts.bitnami.com/bitnami
-    version: 0.8.2
+    repo:  oci://quay.io/jetstack/charts
+    version: 1.20.1
     valuesFile: values.yaml
     releaseName: cert-manager
     namespace: cert-manager
