@@ -77,7 +77,7 @@ operate:
     host: operate.home-server.antoine-campbell.com
     tls:
       enabled: true
-      secretName: home-server-wildcard
+      secretName: home-server-wildcard-signed-prod
   resources:
     requests:
       cpu: null
@@ -100,7 +100,7 @@ tasklist:
     host: tasklist.home-server.antoine-campbell.com
     tls:
       enabled: true
-      secretName: home-server-wildcard
+      secretName: home-server-wildcard-signed-prod
   resources:
     requests:
       cpu: null

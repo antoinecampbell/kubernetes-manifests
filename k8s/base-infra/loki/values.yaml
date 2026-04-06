@@ -57,7 +57,7 @@ gateway:
           - path: /
             pathType: Prefix
     tls:
-      - secretName: home-server-wildcard
+      - secretName: home-server-wildcard-signed-prod
         hosts:
           - loki.home-server.antoine-campbell.com
 

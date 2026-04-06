@@ -113,4 +113,4 @@ spec:
                 port:
                   name: http
   tls:
-    - secretName: home-server-wildcard
+    - secretName: home-server-wildcard-signed-prod

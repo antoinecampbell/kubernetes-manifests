@@ -19,7 +19,7 @@ ingress:
   extraTls:
     - hosts:
         - prefect.home-server.antoine-campbell.com
-      secretName: home-server-wildcard
+      secretName: home-server-wildcard-signed-prod
 postgresql:
   enabled: false
 secret:

@@ -27,7 +27,7 @@ server:
       nginx.ingress.kubernetes.io/force-ssl-redirect: true
     enabled: true
     extraTls:
-      - secretName: home-server-wildcard
+      - secretName: home-server-wildcard-signed-prod
 
 repoServer:
   metrics:

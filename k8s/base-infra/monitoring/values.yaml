@@ -8,14 +8,14 @@ prometheus:
     hosts:
       - prometheus.home-server.antoine-campbell.com
     tls:
-      - secretName: home-server-wildcard
+      - secretName: home-server-wildcard-signed-prod
 alertmanager:
   ingress:
     enabled: true
     hosts:
       - alertmanager.home-server.antoine-campbell.com
     tls:
-      - secretName: home-server-wildcard
+      - secretName: home-server-wildcard-signed-prod
 grafana:
   grafana.ini:
     server:
@@ -25,4 +25,4 @@ grafana:
     hosts:
       - grafana.home-server.antoine-campbell.com
     tls:
-      - secretName: home-server-wildcard
+      - secretName: home-server-wildcard-signed-prod
