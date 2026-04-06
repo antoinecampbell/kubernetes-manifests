@@ -11,7 +11,7 @@ spec:
     solvers:
       - selector:
           dnsNames:
-            - "home-server.anotine-campbell.com"
+            - "home-server.antoine-campbell.com"
             - "*.home-server.antoine-campbell.com"
         dns01:
           cloudflare:
