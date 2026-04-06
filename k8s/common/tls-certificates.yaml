@@ -16,4 +16,3 @@ spec:
   dnsNames:
     - "*.home-server.antoine-campbell.com"
     - "home-server.antoine-campbell.com"
-  revisionHistoryLimit: 1
