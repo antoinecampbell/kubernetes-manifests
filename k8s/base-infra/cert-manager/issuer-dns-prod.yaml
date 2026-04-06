@@ -7,7 +7,7 @@ spec:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: antoine@antoine-campbell.com
     privateKeySecretRef:
-      name: letsencrypt-prod
+      name: letsencrypt-dns-prod
     solvers:
       - selector:
           dnsNames:
