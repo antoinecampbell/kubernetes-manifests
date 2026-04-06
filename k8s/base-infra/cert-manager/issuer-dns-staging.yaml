@@ -15,7 +15,6 @@ spec:
             - "*.home-server.antoine-campbell.com"
         dns01:
           cloudflare:
-            email: antoine.s.campbell@gmail.com
             apiTokenSecretRef:
               name: cloudflare-api-key-secret
               key: api-key
