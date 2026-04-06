@@ -64,4 +64,4 @@ spec:
   tls:
     - hosts:
         - web-rtc-demo.home-server.antoine-campbell.com
-      secretName: home-server-wildcard-signed-staging
+      secretName: home-server-wildcard-signed-prod
