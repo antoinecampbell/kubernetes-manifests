@@ -1,64 +1,17 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: cert-manager
-  namespace: argocd
-  labels:
-    name: cert-manager
-spec:
-  project: default
-  source:
-    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
-    targetRevision: HEAD
-    path: k8s/base-infra/cert-manager
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: cert-manager
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sealed-secrets
+  name: camunda-platform
   namespace: argocd
   labels:
-    name: sealed-secrets
+    name: camunda-platform
 spec:
   project: default
   source:
     repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/base-infra/sealed-secrets
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: sealed-secrets
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: web-rtc-demo
-  namespace: argocd
-  labels:
-    name: web-rtc-demo
-spec:
-  project: default
-  source:
-    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
-    targetRevision: HEAD
-    path: k8s/apps/web-rtc-demo
+    path: k8s/apps/camunda-platform
   destination:
     server: https://kubernetes.default.svc
     namespace: default
@@ -73,19 +26,19 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: common-resources
+  name: elastic-operator
   namespace: argocd
   labels:
-    name: common-resources
+    name: elastic-operator
 spec:
   project: default
   source:
     repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/common
+    path: k8s/base-infra/elastic-operator
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: elastic
   syncPolicy:
     automated:
       prune: true
@@ -97,16 +50,40 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: postgres
+  name: elastic
   namespace: argocd
   labels:
-    name: postgres
+    name: elastic
 spec:
   project: default
   source:
     repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/apps/postgres
+    path: k8s/apps/elastic
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: elastic
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgrest
+  namespace: argocd
+  labels:
+    name: postgrest
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
+    targetRevision: HEAD
+    path: k8s/apps/postgrest
   destination:
     server: https://kubernetes.default.svc
     namespace: postgres
@@ -121,19 +98,19 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: reflector
+  name: ktor-camunda-worker
   namespace: argocd
   labels:
-    name: reflector
+    name: ktor-camunda-worker
 spec:
   project: default
   source:
     repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/base-infra/reflector
+    path: k8s/apps/ktor-camunda-worker
   destination:
     server: https://kubernetes.default.svc
-    namespace: reflector
+    namespace: default
   syncPolicy:
     automated:
       prune: true
@@ -145,44 +122,19 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kube-prom
+  name: redis
   namespace: argocd
   labels:
-    name: kube-prom
+    name: redis
 spec:
   project: default
   source:
     repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/base-infra/monitoring
+    path: k8s/apps/redis
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true
-      - ServerSideApply=true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: ingress-nginx
-  namespace: argocd
-  labels:
-    name: ingress-nginx
-spec:
-  project: default
-  source:
-    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
-    targetRevision: HEAD
-    path: k8s/base-infra/ingress-nginx
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: ingress-nginx
+    namespace: redis
   syncPolicy:
     automated:
       prune: true
@@ -194,19 +146,19 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cloudflare
+  name: rabbitmq
   namespace: argocd
   labels:
-    name: cloudflare
+    name: rabbitmq
 spec:
   project: default
   source:
     repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/base-infra/cloudflare
+    path: k8s/apps/rabbitmq
   destination:
     server: https://kubernetes.default.svc
-    namespace: cloudflare
+    namespace: rabbitmq
   syncPolicy:
     automated:
       prune: true
@@ -214,24 +166,23 @@ spec:
     syncOptions:
       - PrunePropagationPolicy=foreground
       - PruneLast=true
-      - RespectIgnoreDifferences=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: loki
+  name: istio
   namespace: argocd
   labels:
-    name: loki
+    name: istio
 spec:
   project: default
   source:
     repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/base-infra/loki
+    path: k8s/base-infra/istio
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
+    namespace: istio-system
   syncPolicy:
     automated:
       prune: true
@@ -240,48 +191,34 @@ spec:
       - PrunePropagationPolicy=foreground
       - PruneLast=true
       - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: istiod-default-validator
+      jqPathExpressions:
+        - .webhooks[] | select(.name == "validation.istio.io") | .failurePolicy
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: istio-validator-istio-system
+      jqPathExpressions:
+        - .webhooks[] | select(.name == "rev.validation.istio.io") | .failurePolicy
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: alloy
+  name: prefect
   namespace: argocd
   labels:
-    name: alloy
+    name: prefect
 spec:
   project: default
   source:
     repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
     targetRevision: HEAD
-    path: k8s/base-infra/alloy
+    path: k8s/apps/prefect
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true
-      - RespectIgnoreDifferences=true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: homarr
-  namespace: argocd
-  labels:
-    name: homarr
-spec:
-  project: default
-  source:
-    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
-    targetRevision: HEAD
-    path: k8s/apps/homarr
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: homarr
+    namespace: default
   syncPolicy:
     automated:
       prune: true
