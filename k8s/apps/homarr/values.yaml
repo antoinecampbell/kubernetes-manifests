@@ -17,3 +17,6 @@ persistence:
     enabled: true
     volumeClaimName: homarr-database
     storageClassName: microk8s-hostpath
+resources:
+  limits:
+    memory: 1Gi
