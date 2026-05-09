@@ -226,4 +226,3 @@ spec:
     syncOptions:
       - PrunePropagationPolicy=foreground
       - PruneLast=true
-      - RespectIgnoreDifferences=true
