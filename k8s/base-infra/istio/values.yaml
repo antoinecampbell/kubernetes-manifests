@@ -3,5 +3,5 @@ global:
   platform: microk8s
 resources:
   requests:
-    cpu: 100m
-    memory: 2048Mi
+    cpu: 50m
+    memory: 512Mi

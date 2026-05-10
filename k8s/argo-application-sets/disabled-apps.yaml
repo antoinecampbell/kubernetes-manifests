@@ -170,42 +170,6 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: istio
-  namespace: argocd
-  labels:
-    name: istio
-spec:
-  project: default
-  source:
-    repoURL: git@github.com:antoinecampbell/kubernetes-manifests.git
-    targetRevision: HEAD
-    path: k8s/base-infra/istio
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: istio-system
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true
-      - RespectIgnoreDifferences=true
-  ignoreDifferences:
-    - group: admissionregistration.k8s.io
-      kind: ValidatingWebhookConfiguration
-      name: istiod-default-validator
-      jqPathExpressions:
-        - .webhooks[] | select(.name == "validation.istio.io") | .failurePolicy
-    - group: admissionregistration.k8s.io
-      kind: ValidatingWebhookConfiguration
-      name: istio-validator-istio-system
-      jqPathExpressions:
-        - .webhooks[] | select(.name == "rev.validation.istio.io") | .failurePolicy
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
   name: prefect
   namespace: argocd
   labels:
