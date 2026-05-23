@@ -6,46 +6,46 @@
 version: 2
 updates:
   - package-ecosystem: "helm"
-    directory: "/k8s/alloy"
+    directory: "/k8s/base-infra/alloy"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/argocd"
+    directory: "/k8s/base-infra/argocd"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/cert-manager"
+    directory: "/k8s/base-infra/cert-manager"
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker"
-    directory: "/k8s/cloudflare"
+    directory: "/k8s/base-infra/cloudflare"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/elastic-operator"
+    directory: "/k8s/base-infra/elastic-operator"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/ingress-nginx"
+    directory: "/k8s/base-infra/ingress-nginx"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/istio"
+    directory: "/k8s/base-infra/istio"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/loki"
+    directory: "/k8s/base-infra/loki"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/monitoring"
+    directory: "/k8s/base-infra/monitoring"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/relfector"
+    directory: "/k8s/base-infra/relfector"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/sealed-secrets"
+    directory: "/k8s/base-infra/sealed-secrets"
     schedule:
       interval: "weekly"
