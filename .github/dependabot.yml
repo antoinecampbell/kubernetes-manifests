@@ -42,7 +42,7 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
-    directory: "/k8s/base-infra/relfector"
+    directory: "/k8s/base-infra/reflector"
     schedule:
       interval: "weekly"
   - package-ecosystem: "helm"
