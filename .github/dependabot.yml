@@ -5,7 +5,47 @@
 
 version: 2
 updates:
+  - package-ecosystem: "helm"
+    directory: "/k8s/alloy"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "helm"
+    directory: "/k8s/argocd"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "helm"
+    directory: "/k8s/cert-manager"
+    schedule:
+      interval: "weekly"
   - package-ecosystem: "docker"
-    directory: "/k8s"
+    directory: "/k8s/cloudflare"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "helm"
+    directory: "/k8s/elastic-operator"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "helm"
+    directory: "/k8s/ingress-nginx"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "helm"
+    directory: "/k8s/istio"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "helm"
+    directory: "/k8s/loki"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "helm"
+    directory: "/k8s/monitoring"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "helm"
+    directory: "/k8s/relfector"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "helm"
+    directory: "/k8s/sealed-secrets"
     schedule:
       interval: "weekly"
