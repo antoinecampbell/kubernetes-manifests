@@ -82,6 +82,9 @@ spec:
           - name: homarr
             namespace: homarr
             path: k8s/apps/homarr
+          - name: renovate
+            namespace: renovate
+            path: k8s/apps/renovate
   template:
     metadata:
       name: "{{.name}}"

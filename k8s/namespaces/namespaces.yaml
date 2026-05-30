@@ -1,3 +1,11 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: default
+  labels:
+    istio.io/dataplane-mode: ambient
+---
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -79,3 +87,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: homarr
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: renovate
