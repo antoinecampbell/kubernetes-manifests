@@ -14,3 +14,5 @@ helmCharts:
     apiVersions:
       - monitoring.coreos.com/v1
 
+resources:
+  - secrets.yaml
