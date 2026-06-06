@@ -3,5 +3,3 @@ crds:
 prometheus:
   servicemonitor:
     enabled: true
-cainjector:
-  enabled: false
