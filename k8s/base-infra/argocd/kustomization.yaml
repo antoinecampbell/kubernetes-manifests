@@ -8,7 +8,7 @@ helmCharts:
     repo: https://argoproj.github.io/argo-helm
     version: 9.5.19
     valuesFile: values.yaml
-    releaseName: argo-cd
+    releaseName: argocd
     namespace: argocd
     includeCRDs: true
     apiVersions:
