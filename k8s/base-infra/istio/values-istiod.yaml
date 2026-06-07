@@ -1,8 +1,8 @@
 profile: ambient
 global:
   platform: microk8s
+  logAsJson: true
 resources:
   requests:
     cpu: 50m
     memory: 512Mi
-logAsJson: true
