@@ -3,13 +3,18 @@ prometheus:
     retention: 7d
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
-    volumes:
-      - name: prometheus-data
-        persistentVolumeClaim:
-          claimName: prometheus-pvc
-    volumeMounts:
-      - name: prometheus-data
-        mountPath: /prometheus
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: microk8s-hostpath
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 20Gi
+          selector:
+            matchLabels:
+              monitoring/component: prometheus
   ingress:
     enabled: true
     hosts:

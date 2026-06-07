@@ -35,22 +35,6 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: prometheus-pvc
-  namespace: monitoring
-spec:
-  storageClassName: microk8s-hostpath
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
-  selector:
-    matchLabels:
-      monitoring/component: prometheus
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
   name: grafana-pvc
   namespace: monitoring
 spec:
