@@ -3,6 +3,13 @@ prometheus:
     retention: 7d
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
+    volumes:
+      - name: prometheus-data
+        persistentVolumeClaim:
+          claimName: prometheus-pvc
+    volumeMounts:
+      - name: prometheus-data
+        mountPath: /prometheus
   ingress:
     enabled: true
     hosts:
@@ -17,6 +24,9 @@ alertmanager:
     tls:
       - secretName: home-server-wildcard-signed-prod
 grafana:
+  persistence:
+    enabled: true
+    existingClaim: grafana-pvc
   grafana.ini:
     server:
       domain: grafana.home-server.antoine-campbell.com
