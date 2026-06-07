@@ -35,6 +35,12 @@ grafana:
   grafana.ini:
     server:
       domain: grafana.home-server.antoine-campbell.com
+  additionalDataSources:
+    - name: Loki
+      type: loki
+      url: http://loki.monitoring.svc.cluster.local:3100
+      access: proxy
+      isDefault: false
   ingress:
     enabled: true
     hosts:
