@@ -32,13 +32,6 @@ helmCharts:
     releaseName: ztunnel
     namespace: istio-system
     includeCRDs: true
-  - name: gateway
-    repo: https://istio-release.storage.googleapis.com/charts
-    version: 1.29.2
-    valuesFile: values-gateway.yaml
-    releaseName: gateway
-    namespace: istio-system
-    includeCRDs: true
 
 resources:
   - k8s-gateway-crds-1.4.0.yaml
