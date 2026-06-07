@@ -76,6 +76,13 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: istio-ingress
+  labels:
+    istio.io/dataplane-mode: ambient
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: cloudflare
 ---
 apiVersion: v1
