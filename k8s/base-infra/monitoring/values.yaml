@@ -1,3 +1,4 @@
+fullnameOverride: kube-prom
 prometheus:
   prometheusSpec:
     retention: 7d
