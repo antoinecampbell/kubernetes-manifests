@@ -1,6 +1,5 @@
 prometheus:
   prometheusSpec:
-    replicas: 0
     retention: 7d
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
