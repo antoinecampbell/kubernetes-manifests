@@ -11,7 +11,10 @@ prometheus:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 5Gi
+              storage: 20Gi
+          selector:
+            matchLabels:
+              monitoring/component: prometheus
   ingress:
     enabled: true
     hosts:
