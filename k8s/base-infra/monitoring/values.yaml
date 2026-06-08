@@ -12,9 +12,7 @@ prometheus:
           resources:
             requests:
               storage: 20Gi
-          selector:
-            matchLabels:
-              monitoring/component: prometheus
+          volumeName: prometheus-pv
   ingress:
     enabled: true
     hosts:
