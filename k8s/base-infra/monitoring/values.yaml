@@ -3,6 +3,15 @@ prometheus:
     retention: 7d
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: microk8s-hostpath
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 20Gi
   ingress:
     enabled: true
     hosts:
