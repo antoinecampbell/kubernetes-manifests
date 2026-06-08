@@ -4,6 +4,11 @@ prometheus:
     retention: 7d
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
+    resources:
+      requests:
+        memory: 1Gi
+      limits:
+        memory: 4Gi
     securityContext:
       runAsUser: 1000
       runAsGroup: 1000
