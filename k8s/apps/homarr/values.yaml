@@ -2,12 +2,15 @@ env:
   TZ: America/New_York
 ingress:
   enabled: true
+  ingressClassName: istio
   hosts:
   - host: home-server.antoine-campbell.com
     paths:
       - path: /
   tls:
     - secretName: home-server-wildcard-signed-prod
+      hosts:
+        - home-server.antoine-campbell.com
 envSecrets:
   dbEncryption:
     existingSecret: db-encryption
