@@ -2,6 +2,7 @@ fullnameOverride: kube-prom
 prometheus:
   prometheusSpec:
     retention: 7d
+    retentionSize: 3GB
     podMonitorSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
     resources:
@@ -13,6 +14,9 @@ prometheus:
       runAsUser: 1000
       runAsGroup: 1000
       fsGroup: 1000
+    additionalArgs:
+      - name: query.max-concurrency
+        value: "4"
     storageSpec:
       volumeClaimTemplate:
         spec:
