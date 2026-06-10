@@ -6,7 +6,7 @@ namespace: elastic
 helmCharts:
   - name: eck-operator
     repo:  https://helm.elastic.co
-    version: 2.11.0
+    version: 2.16.1
     valuesFile: values.yaml
     releaseName: elastic-operator
     namespace: elastic
