@@ -6,7 +6,7 @@ namespace: rabbitmq
 helmCharts:
   - name: rabbitmq-cluster-operator
     repo: oci://registry-1.docker.io/bitnamicharts
-    version: 4.4.3
+    version: 4.4.34
     valuesFile: values.yaml
     releaseName: main
     namespace: rabbitmq
