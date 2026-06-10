@@ -8,7 +8,8 @@ data:
     {
       "repositories": [
         "antoinecampbell/kubernetes-manifests",
-        "antoinecampbell/home-media-server"
+        "antoinecampbell/home-media-server",
+        "antoinecampbell/operaton-testing"
       ]
     }
 ---
