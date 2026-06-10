@@ -19,9 +19,9 @@ spec:
           - name: reflector
             namespace: reflector
             path: k8s/base-infra/reflector
-          - name: ingress-nginx
-            namespace: ingress-nginx
-            path: k8s/base-infra/ingress-nginx
+#          - name: ingress-nginx
+#            namespace: ingress-nginx
+#            path: k8s/base-infra/ingress-nginx
           - name: kube-prom
             namespace: monitoring
             path: k8s/base-infra/monitoring
