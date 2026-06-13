@@ -2,9 +2,6 @@ env:
   TZ: America/New_York
 ingress:
   enabled: true
-  ingressClassName: istio
-  annotations:
-    networking.istio.io/ingress.gateway: istio-ingress/my-gateway
   hosts:
   - host: home-server.antoine-campbell.com
     paths:
