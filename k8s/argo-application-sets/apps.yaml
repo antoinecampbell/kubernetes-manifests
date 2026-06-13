@@ -107,44 +107,26 @@ spec:
           - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
-kind: ApplicationSet
+kind: Application
 metadata:
   name: media-apps
   namespace: argocd
 spec:
-  goTemplate: true
-  goTemplateOptions: [ "missingkey=error" ]
-  generators:
-    - list:
-        elements:
-          - app: jellyfin
-          - app: nzbget
-          - app: plex
-          - app: prowlarr
-          - app: qbittorrent
-          - app: radarr
-          - app: sonarr
-          - app: common-media-resources
-  template:
-    metadata:
-      name: "{{.app}}"
-      namespace: argocd
-    spec:
-      project: default
-      source:
-        repoURL: git@github.com:antoinecampbell/home-media-server.git
-        targetRevision: HEAD
-        path: "k8s/apps/media/{{.app}}"
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: media
-      syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
-        syncOptions:
-          - PrunePropagationPolicy=foreground
-          - PruneLast=true
+  project: default
+  source:
+    repoURL: git@github.com:antoinecampbell/home-media-server.git
+    targetRevision: HEAD
+    path: k8s/argo-application-sets
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
