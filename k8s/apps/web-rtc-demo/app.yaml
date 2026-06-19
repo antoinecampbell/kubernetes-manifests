@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: ghcr.io/antoinecampbell/webrtc:latest
+          image: ghcr.io/antoinecampbell/webrtc:latest@sha256:db378851b160b4c4b3042ef3cf8e76a29fa150aceb331a253594fe577e611848
           ports:
             - containerPort: 3000
               name: http
