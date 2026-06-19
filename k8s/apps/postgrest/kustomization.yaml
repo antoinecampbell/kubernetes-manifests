@@ -9,4 +9,4 @@ resources:
 images:
   - name: app
     newName: postgrest/postgrest
-    newTag: v12.0.3
+    newTag: v12.2.12@sha256:5f4ce744539bbba786b4e24dbbd95bdb2a956dcf568c5374995a0ff4a68f5bd2
