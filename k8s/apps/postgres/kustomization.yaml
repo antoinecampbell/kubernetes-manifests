@@ -6,7 +6,7 @@ namespace: postgres
 helmCharts:
   - name: postgresql
     repo:  https://charts.bitnami.com/bitnami
-    version: 14.0.1
+    version: 18.6.7
     valuesFile: values.yaml
     releaseName: main
     namespace: postgres
