@@ -6,7 +6,7 @@ namespace: redis
 helmCharts:
   - name: redis
     repo:  https://charts.bitnami.com/bitnami
-    version: 19.5.0
+    version: 19.6.4
     valuesFile: values.yaml
     releaseName: main
     namespace: redis
