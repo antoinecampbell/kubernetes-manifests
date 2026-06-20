@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:best-practices"],
-  "enabledManagers": ["kubernetes", "helmv3", "docker"],
+  "enabledManagers": ["kubernetes", "helmv3", "kustomize"],
   "minimumReleaseAge": "30 days",
   "kubernetes": {
     "managerFilePatterns": [
