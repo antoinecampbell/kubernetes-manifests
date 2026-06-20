@@ -19,9 +19,9 @@ spec:
           - name: reflector
             namespace: reflector
             path: k8s/base-infra/reflector
-#          - name: ingress-nginx
-#            namespace: ingress-nginx
-#            path: k8s/base-infra/ingress-nginx
+          - name: ingress-nginx
+            namespace: ingress-nginx
+            path: k8s/base-infra/ingress-nginx
           - name: kube-prom
             namespace: monitoring
             path: k8s/base-infra/monitoring
@@ -76,9 +76,6 @@ spec:
           - name: common-resources
             namespace: default
             path: k8s/common
-          - name: postgres
-            namespace: postgres
-            path: k8s/apps/postgres
           - name: homarr
             namespace: homarr
             path: k8s/apps/homarr
