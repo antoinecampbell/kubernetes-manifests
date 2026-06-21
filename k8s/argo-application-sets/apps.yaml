@@ -22,9 +22,9 @@ spec:
           - name: ingress-nginx
             namespace: ingress-nginx
             path: k8s/base-infra/ingress-nginx
-          - name: kube-prom
-            namespace: monitoring
-            path: k8s/base-infra/monitoring
+#          - name: kube-prom
+#            namespace: monitoring
+#            path: k8s/base-infra/monitoring
           - name: argocd
             namespace: argocd
             path: k8s/base-infra/argocd
