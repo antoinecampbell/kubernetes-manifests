@@ -70,3 +70,16 @@ grafana:
       - grafana.home-server.antoine-campbell.com
     tls:
       - secretName: home-server-wildcard-signed-prod
+  sidecar:
+    alerts:
+      env:
+        HEALTH_PORT: "8081"
+    dashboards:
+      env:
+        HEALTH_PORT: "8084"
+    datasources:
+      env:
+        HEALTH_PORT: "8082"
+    notifiers:
+      env:
+        HEALTH_PORT: "8083"
