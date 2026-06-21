@@ -1,4 +1,7 @@
 fullnameOverride: kube-prom
+crds:
+  upgradeJob:
+    enabled: true
 prometheus:
   prometheusSpec:
     retention: 7d
