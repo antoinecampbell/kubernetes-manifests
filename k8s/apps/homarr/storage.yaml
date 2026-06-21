@@ -13,3 +13,17 @@ spec:
   hostPath:
     path: /home/antoine/home-server/homarr/database
     type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: homarr-database
+  namespace: homarr
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+  storageClassName: microk8s-hostpath
+  volumeName: homarr-database
