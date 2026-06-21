@@ -51,6 +51,8 @@ grafana:
     runAsUser: 1000
     runAsGroup: 1000
     fsGroup: 1000
+  initChownData:
+    enabled: false
   grafana.ini:
     server:
       domain: grafana.home-server.antoine-campbell.com
