@@ -43,6 +43,7 @@ alertmanager:
     tls:
       - secretName: home-server-wildcard-signed-prod
 grafana:
+  existingSecret: grafana-admin
   persistence:
     enabled: true
     existingClaim: grafana-pvc

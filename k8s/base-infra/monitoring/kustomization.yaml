@@ -5,6 +5,7 @@ namespace: monitoring
 
 resources:
   - storage.yaml
+  - secrets.yaml
 
 helmCharts:
   - name: kube-prometheus-stack
