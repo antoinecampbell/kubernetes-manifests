@@ -52,20 +52,9 @@ lokiCanary:
 sidecar:
   skipTlsVerify: true
 
-# Gateway for query and write paths
+# Disable the gateway
 gateway:
   enabled: false
-  ingress:
-    enabled: true
-    hosts:
-      - host: loki.home-server.antoine-campbell.com
-        paths:
-          - path: /
-            pathType: Prefix
-    tls:
-      - secretName: home-server-wildcard-signed-prod
-        hosts:
-          - loki.home-server.antoine-campbell.com
 
 deploymentMode: SingleBinary
 singleBinary:
