@@ -3,6 +3,7 @@
   "extends": ["config:best-practices"],
   "enabledManagers": ["kubernetes", "helmv3", "kustomize"],
   "minimumReleaseAge": "30 days",
+  "prCreation": "immediate",
   "kubernetes": {
     "managerFilePatterns": [
       "/k8s/.+\\.yaml$/"
