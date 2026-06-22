@@ -10,10 +10,6 @@ prometheus:
         memory: 1Gi
       limits:
         memory: 4Gi
-    securityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
-      fsGroup: 1000
     additionalArgs:
       - name: query.max-concurrency
         value: "4"
@@ -25,10 +21,7 @@ prometheus:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 20Gi
-          selector:
-            matchLabels:
-              monitoring/component: prometheus
+              storage: 5Gi
   ingress:
     enabled: true
     hosts:
@@ -43,18 +36,10 @@ alertmanager:
     tls:
       - secretName: home-server-wildcard-signed-prod
 grafana:
-  existingSecret: grafana-admin
+  admin:
+    existingSecret: grafana-admin
   persistence:
     enabled: true
-    existingClaim: grafana-pvc
-  securityContext:
-    runAsNonRoot: false
-    runAsUser: 1000
-    runAsGroup: 1000
-    fsGroup: 1000
-  initChownData:
-    securityContext:
-      runAsUser: 1000
   grafana.ini:
     server:
       domain: grafana.home-server.antoine-campbell.com
@@ -71,6 +56,7 @@ grafana:
     tls:
       - secretName: home-server-wildcard-signed-prod
   sidecar:
+    skipTlsVerify: true
     alerts:
       env:
         HEALTH_PORT: "8081"
