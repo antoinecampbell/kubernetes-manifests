@@ -3,6 +3,12 @@
   "extends": ["config:best-practices"],
   "enabledManagers": ["kubernetes", "helmv3", "kustomize"],
   "prCreation": "immediate",
+  "packageRules": [
+    {
+      "matchDatasources": ["helm"],
+      "pinDigests": false
+    }
+  ],
   "kubernetes": {
     "managerFilePatterns": [
       "/k8s/.+\\.yaml$/"
