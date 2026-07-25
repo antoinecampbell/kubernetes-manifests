@@ -6,7 +6,7 @@ namespace: monitoring
 helmCharts:
   - name: loki
     repo: oci://ghcr.io/grafana-community/helm-charts
-    version: 6.55.0
+    version: 6.57.0
     releaseName: loki
     namespace: monitoring
     includeCRDs: true
