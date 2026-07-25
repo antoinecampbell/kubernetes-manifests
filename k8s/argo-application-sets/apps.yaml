@@ -82,6 +82,12 @@ spec:
           - name: renovate
             namespace: renovate
             path: k8s/apps/renovate
+          - name: strapi
+            namespace: strapi
+            path: k8s/apps/strapi
+          - name: postres
+            namespace: postgres
+            path: k8s/apps/postgres
   template:
     metadata:
       name: "{{.name}}"
