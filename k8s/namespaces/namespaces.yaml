@@ -97,3 +97,9 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: renovate
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: strapi

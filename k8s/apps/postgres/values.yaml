@@ -1,0 +1,18 @@
+auth:
+  existingSecret: postgres-secrets
+primary:
+  service:
+    type: NodePort
+    nodePorts:
+      postgresql: "30432"
+  networkPolicy:
+    enabled: false
+  extraEnvVars:
+    - name: POSTGRESQL_PGHBA_AUTH_METHOD
+      value: scram-sha-256
+readReplicas:
+  replicas: 0
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true

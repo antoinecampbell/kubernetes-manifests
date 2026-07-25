@@ -1,0 +1,137 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: strapi-data
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: microk8s-hostpath
+  volumeName: strapi-data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: strapi-data
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: microk8s-hostpath
+  hostPath:
+    path: /home/antoine/home-server/strapi/data/
+    type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: strapi-config
+  labels:
+    app: strapi
+data:
+  DATABASE_CLIENT: "postgres"
+  DATABASE_HOST: "main-postgresql.postgres.svc.cluster.local"
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: "strapi"
+  DATABASE_USERNAME: "strapi"
+  DATABASE_SSL: "false"
+  NODE_ENV: "development"
+  PUBLIC_URL: "https://strapi.home-server.antoine-campbell.com"
+  ADMIN_URL: "https://strapi.home-server.antoine-campbell.com/admin"
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: strapi-secrets
+  namespace: strapi
+spec:
+  encryptedData:
+    DATABASE_PASSWORD: AgA5/J2lAAakY4jVI8a8HgReuhE2w/a2CgDqEoA0Z/H35Kfnaw8B1xDDAOy/EkdyBuBDvSK6WD1B46MzmuGIyoU7nY6kZI6NRttNGMC136zr7feHiDKvxOBEauuElZMibuuyU1nfeI5F2q/rsLH/bgTFarYTGdc2pxXVJBir0zCW4qsSV+IZh1wBzVCvfqbI07B5OdEJ4/Lv0HZYU9dZMtO8D2/Jg0YlyPdSnYO9TcDCYU71+8oEEkH2fRbxT1MsIIX8wUUqbS4VLvBoPbG9/etm1IiAa5wUJCLP8q7JcTbICGKWQYE2D2XmtgaVg+Fe0hBeeUWXBYp5t/w7dmWy1b8PhcAsKuk5wfxuTpUeja8OKlTNeQsHMQSo54bSGsLKy6xQgoUdiiNmweT00gGt5JcJffnuLIh4HqpbvwcnjBFUrHpXfsFTRJP08k7S6pw5M8TS3fjwWWFNCh/2Huh71e6foIPjfzwv0FrUPZcI8NI+pSwJS/0GuCkwCbmoExNsBr5IeUOZV3VxyYhRs84PfMaR+DueJOzDUCNiTKg9kzx/Uu18FxaJvvRcHbvaCd+iWy7nzHiH5TYdplLk7Y7jLnuXaOOg9v5KQNCHV7zVL5LCymcwLjMXNotXTVkTXO75FPDZyDXav9zlgzn3TqJ/zmNXrExSyqPMlWVA6VIvljsmVe3olnYybQXF4cCbtCEMGhJ6M0ILL+E=
+  template:
+    metadata:
+      name: strapi-secrets
+      namespace: strapi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strapi
+  labels:
+    app: strapi
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: strapi
+  template:
+    metadata:
+      labels:
+        app: strapi
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: strapi
+          image: vshadbolt/strapi:5.50.2-alpine
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: strapi-config
+            - secretRef:
+                name: strapi-secrets
+          ports:
+            - name: http
+              containerPort: 1337
+          volumeMounts:
+            - name: strapi-data
+              mountPath: /srv/app
+      volumes:
+        - name: strapi-data
+          persistentVolumeClaim:
+            claimName: strapi-data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: strapi
+  labels:
+    app: strapi
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 1337
+  selector:
+    app: strapi
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  name: strapi
+spec:
+  rules:
+    - host: strapi.home-server.antoine-campbell.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: strapi
+                port:
+                  name: http
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - secretName: home-server-wildcard-signed-prod
