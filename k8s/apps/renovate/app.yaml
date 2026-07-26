@@ -14,7 +14,7 @@ spec:
         spec:
           containers:
             - name: renovate
-              image: renovate/renovate:43.245.0@sha256:6e216cdff567188d3a875d2c3ee0b6c1b4706fd465b071a9c200ae63e1ba33b2
+              image: renovate/renovate:43.281.1@sha256:2a4e6df0330b0aa42b21f40589666b678bbd19bcd9a14c3c24ce0492c237c2ff
               envFrom:
                 - configMapRef:
                     name: renovate-variables
