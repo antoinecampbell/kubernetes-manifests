@@ -10,7 +10,7 @@ data:
         "antoinecampbell/kubernetes-manifests",
         "antoinecampbell/home-media-server",
         "antoinecampbell/operaton-testing",
-        "antoinecampbell/ktor-api",
+        "antoinecampbell/ktor-api"
       ]
     }
 ---
