@@ -7,6 +7,16 @@
     {
       "matchDatasources": ["helm"],
       "pinDigests": false
+    },
+    {
+      "matchPackageNames": [
+        "redis",
+        "postgresql",
+        "camunda-platform"
+      ],
+      "automerge": true,
+      "automergeType": "pr",
+      "minimumReleaseAge": "14 days"
     }
   ],
   "kubernetes": {
