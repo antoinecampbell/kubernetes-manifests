@@ -9,7 +9,8 @@ data:
       "repositories": [
         "antoinecampbell/kubernetes-manifests",
         "antoinecampbell/home-media-server",
-        "antoinecampbell/operaton-testing"
+        "antoinecampbell/operaton-testing",
+        "antoinecampbell/ktor-api",
       ]
     }
 ---
