@@ -5,7 +5,7 @@ namespace: redis
 
 helmCharts:
   - name: redis
-    repo:  https://charts.bitnami.com/bitnami
+    repo:  oci://registry-1.docker.io/bitnamicharts
     version: 28.0.5
     valuesFile: values.yaml
     releaseName: main
