@@ -5,7 +5,7 @@
   "prCreation": "immediate",
   "packageRules": [
     {
-      "matchDatasources": ["helm"],
+      "matchDatasources": ["helm", "docker"],
       "pinDigests": false
     },
     {
