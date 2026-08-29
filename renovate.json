@@ -16,7 +16,8 @@
       ],
       "automerge": true,
       "automergeType": "pr",
-      "minimumReleaseAge": "14 days"
+      "minimumReleaseAge": "14 days",
+      "labels": ["auto merge"]
     }
   ],
   "kubernetes": {
