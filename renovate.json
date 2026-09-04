@@ -9,10 +9,14 @@
       "pinDigests": false
     },
     {
+      "matchDatasources": ["helm"],
       "matchPackageNames": [
-        "redis",
         "postgresql",
-        "camunda-platform"
+        "bitnami/postgresql",
+        "redis",
+        "bitnami/redis",
+        "camunda-platform",
+        "camunda/camunda-platform"
       ],
       "automerge": true,
       "automergeType": "pr",
