@@ -11,12 +11,9 @@
     {
       "matchDatasources": ["helm", "docker"],
       "matchPackageNames": [
-        "postgresql",
-        "bitnami/postgresql",
-        "redis",
-        "bitnami/redis",
-        "camunda-platform",
-        "camunda/camunda-platform"
+        "registry-1.docker.io/bitnamicharts/postgresql",
+        "registry-1.docker.io/bitnamicharts/redis",
+        "camunda-platform"
       ],
       "automerge": true,
       "automergeType": "pr",
