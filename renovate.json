@@ -11,10 +11,17 @@
     {
       "matchDatasources": ["helm", "docker"],
       "matchPackageNames": [
+        "alloy",
+        "argo-cd",
+        "camunda-platform",
+        "cloudflare/cloudflared",
+        "ghcr.io/grafana-community/helm-charts/loki",
+        "ghcr.io/prometheus-community/charts/kube-prometheus-stack",
         "registry-1.docker.io/bitnamicharts/postgresql",
         "registry-1.docker.io/bitnamicharts/redis",
-        "camunda-platform"
+        "renovate/renovate"
       ],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "automergeType": "pr",
       "minimumReleaseAge": "14 days",
