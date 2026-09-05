@@ -9,7 +9,7 @@
       "pinDigests": false
     },
     {
-      "matchDatasources": ["helm"],
+      "matchDatasources": ["helm", "docker"],
       "matchPackageNames": [
         "postgresql",
         "bitnami/postgresql",
