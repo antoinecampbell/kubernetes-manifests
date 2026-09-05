@@ -11,7 +11,8 @@ data:
         "antoinecampbell/home-media-server",
         "antoinecampbell/operaton-testing",
         "antoinecampbell/ktor-api"
-      ]
+      ],
+      "gitAuthor": "Renovate Bot <bot@renovateapp.com>"
     }
 ---
 apiVersion: v1
