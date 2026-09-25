@@ -19,7 +19,9 @@
         "ghcr.io/prometheus-community/charts/kube-prometheus-stack",
         "registry-1.docker.io/bitnamicharts/postgresql",
         "registry-1.docker.io/bitnamicharts/redis",
-        "renovate/renovate"
+        "registry-1.docker.io/bitnamicharts/sealed-secrets",
+        "renovate/renovate",
+        "quay.io/jetstack/charts/cert-manager"
       ],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
