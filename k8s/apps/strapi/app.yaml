@@ -82,7 +82,7 @@ spec:
         fsGroup: 1000
       containers:
         - name: strapi
-          image: vshadbolt/strapi:5.50.2-alpine
+          image: vshadbolt/strapi:5.55.1-alpine
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
