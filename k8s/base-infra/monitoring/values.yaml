@@ -8,6 +8,12 @@ kubeProxy:
 kubeEtcd:
   enabled: false
 
+defaultRules:
+  disabled:
+    KubeControllerManagerDown: true
+    KubeSchedulerDown: true
+    KubeProxyDown: true
+
 fullnameOverride: kube-prom
 prometheus:
   prometheusSpec:
