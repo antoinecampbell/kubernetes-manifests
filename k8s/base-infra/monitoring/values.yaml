@@ -1,3 +1,13 @@
+# Disable components that don't run as standard pods in MicroK8s
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeProxy:
+  enabled: false
+kubeEtcd:
+  enabled: false
+
 fullnameOverride: kube-prom
 prometheus:
   prometheusSpec:
