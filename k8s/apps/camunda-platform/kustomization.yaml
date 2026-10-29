@@ -26,7 +26,7 @@ configMapGenerator:
 helmCharts:
   - name: camunda-platform
     repo: https://helm.camunda.io
-    version: 14.11.1
+    version: 15.4.0
     valuesFile: values.yaml
     releaseName: camunda-platform
     namespace: camunda-platform
