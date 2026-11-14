@@ -3,6 +3,7 @@
   "extends": ["config:best-practices"],
   "enabledManagers": ["kubernetes", "helmv3", "kustomize"],
   "prCreation": "immediate",
+  "internalChecksFilter": "none",
   "packageRules": [
     {
       "matchDatasources": ["helm", "docker"],
