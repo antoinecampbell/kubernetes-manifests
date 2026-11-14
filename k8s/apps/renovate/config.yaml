@@ -25,6 +25,7 @@ data:
   RENOVATE_GIT_AUTHOR: 'Renovate Bot <bot@renovateapp.com>'
   RENOVATE_PLATFORM: 'github'
   RENOVATE_CONFIG_FILE: '/opt/renovate/config.json'
+  LOG_FORMAT: 'json'
 ---
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
