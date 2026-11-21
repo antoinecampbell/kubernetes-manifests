@@ -6,7 +6,7 @@ namespace: postgres
 helmCharts:
   - name: postgresql
     repo: oci://registry-1.docker.io/bitnamicharts
-    version: 18.8.17
+    version: 18.12.24
     valuesFile: values.yaml
     releaseName: main
     namespace: postgres
