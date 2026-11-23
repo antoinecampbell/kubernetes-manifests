@@ -83,10 +83,6 @@ chunksCache:
 resultsCache:
   enabled: false
 
-# Disable minio for storage (using hostpath instead)
-minio:
-  enabled: false
-
 # Keep scalable targets disabled when running single binary mode
 backend:
   replicas: 0
