@@ -6,7 +6,7 @@ namespace: redis
 helmCharts:
   - name: redis
     repo:  oci://registry-1.docker.io/bitnamicharts
-    version: 28.3.15
+    version: 28.3.16
     valuesFile: values.yaml
     releaseName: main
     namespace: redis
